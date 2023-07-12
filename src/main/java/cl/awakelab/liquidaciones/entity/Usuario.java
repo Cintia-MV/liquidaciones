@@ -14,7 +14,7 @@ public class Usuario {
 
     @Id
     @Column(nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //se utiliza para indicar cómo se generará el valor de la clave primaria. se utiliza la estrategia de generación de identidad. lo que significa que la generación del valor se delega al motor de la base de datos.
     private int id_usuario;
 
     @Column(unique = true, nullable = false)
@@ -33,7 +33,7 @@ public class Usuario {
     private String apellido_2;
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_perfil", nullable = false)
+    @JoinColumn(name = "id_perfil", nullable = false) //se utiliza para especificar la columna de la tabla de la base de datos que se utilizará para establecer la relación.
     private Perfil perfil;
 
     @Column(length = 100, nullable = false)

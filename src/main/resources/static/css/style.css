@@ -152,6 +152,10 @@ input:valid {
     --img: url('https://images.unsplash.com/photo-1474403078171-7f199e9d1335?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80');
 }
 
+.imgRegistro{
+    --img: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1744&q=80');
+}
+
 .section-contacto {
     display: flex;
     justify-content: center;
@@ -166,7 +170,7 @@ input:valid {
 
 .contacto{
     position: relative;
-    width: 600px;
+    width: 550px;
     height: 590px;
     background: #23232a81;
     border: 2px solid rgba(255, 255, 255, 0.56);
@@ -181,4 +185,29 @@ input:valid {
 
 .contacto:hover {
     backdrop-filter: blur(10px);
+}
+
+.btn-text {
+    white-space: nowrap;
+}
+
+a {
+    text-decoration: none;
+}
+
+.list-unstyled {
+    list-style-type: none;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+}
+
+.list-item i {
+    margin-right: 10px;
+}
+
+.list-item-content {
+    flex: 1;
 }

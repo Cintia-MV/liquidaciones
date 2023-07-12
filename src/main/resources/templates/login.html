@@ -13,34 +13,36 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/static/images/logo_sprint6.png" alt="Logo" width="30" height="24"
-                     class="d-inline-block align-text-top">
-                Sprint 6
-            </a>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/static/images/logo_sprint6.png" alt="Logo" width="30" height="24"
+                         class="d-inline-block align-text-top"></a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse pe-5" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Registrarse</a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <span class="btn-text">Iniciar sesión</span>
+                    </button>
+                </form>
+            </div>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse pe-5" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Registrarse</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" style="white-space: nowrap;">Iniciar Sesión</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    </nav>
+</header>
 <main>
     <section class="section-login">
         <div class="form-box">

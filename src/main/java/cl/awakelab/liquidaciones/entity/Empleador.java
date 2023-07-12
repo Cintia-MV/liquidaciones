@@ -32,6 +32,7 @@ public class Empleador {
     @Column
     private String email;
 
+    //relacion con tabla usuario
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
@@ -41,7 +42,7 @@ public class Empleador {
 
     //Relacion muchos a muchos de la tabla intermedia
     @ManyToMany
-    @JoinTable(name = "empl_trab",
+    @JoinTable(name = "empl_trab", //especifica la tabla intermedia que se utilizará para almacenar la relación.
             joinColumns = @JoinColumn(name = "id_empleador", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "id_trabajador", nullable = false))
     private List<Trabajador> trabajadores;
