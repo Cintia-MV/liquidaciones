@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+<!-- Barra de navegación -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/static/images/logo_sprint6.png" alt="Logo" width="30" height="24"
+                     class="d-inline-block align-text-top">
+                Sprint 6
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse pe-5" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Registrarse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" style="white-space: nowrap;">Iniciar Sesión</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Header -->
+<header style="background-color: #e9ecef">
+    <h1 class="text-center pt-5">Liquidaciones de Sueldo <br> Para Trabajadores de Casas Particulares</h1>
+    <section>
+        <div class="container">
+            <div class="border-bottom border-secondary my-4 "></div>
+            <p class="text-center">Podrás crear liquidaciones de sueldo para tus trabajadores de casa particular y
+                si
+                eres contador<br>podrás agregar a tus empleadores/clientes y manejar a sus trabajadores y
+                liquidaciones.</p>
+        </div>
+        <div class="d-flex justify-content-center pb-5">
+            <button type="button" class="btn btn-secondary btn-lg me-3">Iniciar Sesión</button>
+            <button type="button" class="btn btn-secondary btn-lg">Registrarse</button>
+        </div>
+    </section>
+</header>
+<!-- Main -->
+<main class="imgContacto">
+    <section class="section-contacto">
+        <div class="container mt-5 mb-4 contacto">
+            <form id="contactForm" method="post" action="">
+                <h2 class="h2-login">CONTACTO</h2>
+                <div class="form-group mb-3">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control form-control" id="nombre" name="nombre"
+                           placeholder="Ingrese su nombre" required style="width: 500px;">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control form-control" id="email" name="email"
+                           placeholder="Ingrese email" required style="width: 500px; color: #050000;">
+                    <small id="emailHelp">Nunca compartiremos tu
+                        email.</small>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea class="form-control form-control" id="mensaje" name="mensaje"
+                              placeholder="Ingrese su mensaje" required style="width: 500px; height: 100px;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-secondary">Enviar</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="d-flex flex-column align-items-center" style="background-color: #dadada;">
+    <h3 class="text-center mt-2">Sprint Módulo 6</h3>
+    <i class="fab fa-github-square fa-2x"></i>
+    <p class="mt-2">@BootcampJava2023</p>
+</footer>
+<!-- Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
