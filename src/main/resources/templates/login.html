@@ -14,6 +14,8 @@
 <body>
 <!-- Barra de navegación -->
 <header th:include="~{../static/html/header.html}"></header>
+
+<!-- Formulario inicio sesión -->
 <main>
     <section class="section-login">
         <div class="form-box">
@@ -22,16 +24,16 @@
                     <h2 class="h2-login">Inicio Sesión</h2>
                     <div class="inputbox">
                         <i class="fa-regular fa-user icon"></i>
-                        <input type="number" required>
-                        <label for="">Run</label>
+                        <input type="number" id="run" name="run" required>
+                        <label for="run">Run</label>
                     </div>
                     <div class="inputbox">
                         <i class="fa-solid fa-lock icon"></i>
-                        <input type="password" required>
-                        <label for="">Clave</label>
+                        <input type="password" id="clave" name="clave" required>
+                        <label for="clave">Clave</label>
                     </div>
                     <div class="forget">
-                        <label for="">
+                        <label for="olvClave" id="olvClave" name="olvClave">
                             <a href="#">Olvidé mi clave</a>
                         </label>
                     </div>

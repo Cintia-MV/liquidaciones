@@ -156,6 +156,10 @@ input:valid {
     --img: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1744&q=80');
 }
 
+.formUsuario{
+    --img: url('https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29tcHV0ZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60');
+}
+
 .section-contacto {
     display: flex;
     justify-content: center;
@@ -184,6 +188,37 @@ input:valid {
 }
 
 .contacto:hover {
+    backdrop-filter: blur(10px);
+}
+
+.usuario{
+    position: relative;
+    width: 550px;
+    height: 780px;
+    background: #23232a81;
+    border: 2px solid rgba(255, 255, 255, 0.56);
+    backdrop-filter: blur(1px);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.7s;
+    color: #FFF;
+}
+
+.section-usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    width: 100%;
+    background: var(--img) no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.usuario:hover {
     backdrop-filter: blur(10px);
 }
 
