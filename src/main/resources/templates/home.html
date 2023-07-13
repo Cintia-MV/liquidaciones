@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,41 +8,12 @@
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 <!-- Barra de navegación -->
-<header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="/static/images/logo_sprint6.png" alt="Logo" width="30" height="24"
-                         class="d-inline-block align-text-top"></a>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse pe-5" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Registrarse</a>
-                    </li>
-                </ul>
-                <form class="d-flex" action="">
-                    <button class="btn btn-outline-secondary" type="submit">
-                        <span class="btn-text">Iniciar sesión</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </nav>
-</header>
+<header th:include="~{../static/html/header.html}"></header>
 
 <!-- Main -->
 <main class="imgContacto">
@@ -57,9 +27,10 @@
                     si eres contador<br>podrás agregar a tus empleadores/clientes y manejar a sus trabajadores y
                     liquidaciones.</p>
                 <div class="d-flex justify-content-center pb-5">
-                    <button type="button" class="btn btn-secondary btn-lg me-3">Iniciar Sesión</button>
-                    <button type="button" class="btn btn-secondary btn-lg">Registrarse</button>
+                    <button type="button" class="btn btn-secondary btn-lg me-3" onclick="window.location.href = 'login';">Iniciar Sesión</button>
+                    <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href = 'registro';">Registrarse</button>
                 </div>
+
             </div>
         </div>
     </section>
@@ -136,16 +107,9 @@
 </main>
 
 <!-- Footer -->
-<footer class="d-flex flex-column align-items-center" style="background-color: #dadada;">
-    <h3 class="text-center mt-2">Sprint Módulo 6</h3>
-    <i class="fab fa-github-square fa-2x"></i>
-    <p class="mt-2">@BootcampJava2023</p>
-</footer>
+<footer th:include="~{../static/html/footer.html}"></footer>
 <!-- Script -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/bec9f83658.js" crossorigin="anonymous"></script>
+<script th:include="~{../static/html/script.html}"></script>
 </body>
 
 </html>

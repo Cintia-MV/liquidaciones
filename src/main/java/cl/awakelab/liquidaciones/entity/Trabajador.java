@@ -18,16 +18,16 @@ public class Trabajador {
     @Column(nullable = false, unique = true)
     private int run;
 
-    @Column(nullable = false)
+    @Column(length = 100, nullable = false)
     private String nombre;
 
-    @Column(nullable = false)
+    @Column(length = 100, nullable = false)
     private String apellido_1;
 
-    @Column
+    @Column(length = 100)
     private String apellido_2;
 
-    @Column
+    @Column(length = 100)
     private String email;
 
 
@@ -37,7 +37,7 @@ public class Trabajador {
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_salud", nullable = false)
-    private InstitucionPrevisional instSalud;
+    private InstitucionSalud instSalud;
 
     @Column(nullable = false)
     private long telefono;

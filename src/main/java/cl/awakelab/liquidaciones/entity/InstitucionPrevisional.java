@@ -13,7 +13,7 @@ public class InstitucionPrevisional {
     @Column(nullable = false)
     private int id_inst_prevision;
 
-    @Column(nullable = false)
+    @Column(length = 50, nullable = false)
     private String descripcion;
 
     @Column(nullable = false)
@@ -22,7 +22,7 @@ public class InstitucionPrevisional {
    @OneToMany(mappedBy = "instPrevision")
     List<Trabajador> listaTrabajadores;
 
-   @OneToMany(mappedBy = "idInstPrevision")
+   @OneToMany(mappedBy = "idInstPrevisional")
     List<Liquidacion> liquidacionesPrev;
 
 }

@@ -13,7 +13,7 @@ public class InstitucionSalud {
     @Column(nullable = false)
     private int id_inst_salud;
 
-    @Column(nullable = false)
+    @Column(length = 100, nullable = false)
     private String descripcion;
 
     @Column(nullable = false)
