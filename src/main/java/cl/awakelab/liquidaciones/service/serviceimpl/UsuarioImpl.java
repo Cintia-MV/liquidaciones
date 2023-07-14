@@ -19,6 +19,12 @@ public class UsuarioImpl implements IUsuarioService{
         return objUsuarioRepo.save(usuario);
     }
 
+    //Registrar usuario
+    @Override
+    public Usuario registrarUsuario(Usuario usuario) {
+        return objUsuarioRepo.save(usuario);
+    }
+
     @Override
     public List<Usuario> listarUsuarios(){
         return objUsuarioRepo.findAll();

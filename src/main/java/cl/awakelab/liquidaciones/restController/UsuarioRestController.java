@@ -16,6 +16,13 @@ public class UsuarioRestController {
     public Usuario crearUsuario(@RequestBody Usuario usuario){
         return objUsuarioService.crearUsuario(usuario);
     }
+
+    //Registrar usuario
+    //@PostMapping
+    //public Usuario registrarUsuario(@RequestBody Usuario usuario){
+     //   return objUsuarioService.registrarUsuario(usuario);
+    //}
+
     @GetMapping("/{idUsuario}") //traer info
     public Usuario buscarUsuarioPorId(@PathVariable int idUsuario){
         return objUsuarioService.buscarUsuarioPorId(idUsuario);

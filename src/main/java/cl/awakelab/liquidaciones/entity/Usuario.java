@@ -32,7 +32,7 @@ public class Usuario {
     @Column(length = 100)
     private String apellido_2;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_perfil", nullable = false) //se utiliza para especificar la columna de la tabla de la base de datos que se utilizará para establecer la relación.
     private Perfil perfil;
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -15,6 +16,7 @@ public class UsuarioController {
     @Autowired
     IUsuarioService objUsuarioService;
 
+    //Listar usuarios
     @GetMapping
     public String listarUsuarios(Model model){
         List<Usuario> listaUsuarios = objUsuarioService.listarUsuarios();
@@ -22,6 +24,7 @@ public class UsuarioController {
         return "listarUsuarios";
     }
 
+    //Crear usuario
     @GetMapping("/crearUsuario")
     public String mostrarFormularioCrearUsuario(Model model){
         return "formUsuario";
@@ -29,8 +32,9 @@ public class UsuarioController {
 
     @PostMapping("/crearUsuario")
     public String crearUsuario(@ModelAttribute Usuario usuario){
+        usuario.setFecha_creacion(LocalDateTime.now());
         objUsuarioService.crearUsuario(usuario);
-        return "redirect:usuario";
+        return "redirect:/usuario";
     }
 
     @GetMapping("/{idUsuario}/editar")
@@ -53,10 +57,12 @@ public class UsuarioController {
         return "eliminarUsuario";
     }
 
-    public String eliminarUsuario(@PathVariable int idUsuario){
+    @PostMapping("/{idUsuario}/eliminar")
+    public String eliminarUsuario(@PathVariable("idUsuario") int idUsuario){
         objUsuarioService.eliminarUsuario2(idUsuario);
         return "redirect:/usuario";
     }
+
 
 
 
