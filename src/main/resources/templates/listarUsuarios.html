@@ -32,19 +32,19 @@
             </thead>
             <tbody>
             <tr th:each="usuario: ${usuarios}" >
-                <td th:text="${usuario.id_usuario}"></td>
+                <td th:text="${usuario.idUsuario}"></td>
                 <td th:text="${usuario.run}"></td>
                 <td th:text="${usuario.nombre}"></td>
-                <td th:text="${usuario.apellido_1}"></td>
+                <td th:text="${usuario.apellido1}"></td>
                 <td th:text="${usuario.email}"></td>
                 <td th:text="${usuario.perfil.descripcion}"></td>
                 <td>
-                    <a th:href="@{/eliminar/{idUsuario}(idUsuario=${usuario.id_usuario})}"
+                    <a th:href="@{/eliminar/{idUsuario}(idUsuario=${usuario.idUsuario})}"
                        onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
                         <i class="fas fa-trash black-icon me-2"></i>
                     </a>
 
-                    <a href="/editar/${usuario.id_usuario}">
+                    <a href="/editar/${usuario.idUsuario}">
                         <i class="fas fa-edit black-icon"></i>
                     </a>
                 </td>

@@ -32,7 +32,7 @@ public class UsuarioController {
 
     @PostMapping("/crearUsuario")
     public String crearUsuario(@ModelAttribute Usuario usuario){
-        usuario.setFecha_creacion(LocalDateTime.now());
+        usuario.setFechaCreacion(LocalDateTime.now());
         objUsuarioService.crearUsuario(usuario);
         return "redirect:/usuario";
     }

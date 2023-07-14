@@ -10,8 +10,8 @@ import java.util.List;
 @Table( name = "perfil") //especifica el nombre de la tabla en la base de datos a la que se va a mapear la entidad Perfil.
 public class Perfil {
     @Id //indica que es la clave primaria de la entidad Perfil
-    @Column(nullable = false)
-    private int id_perfil;
+    @Column(name = "id_perfil",nullable = false)
+    private int idPerfil;
 
     @Column(length = 50, nullable = false)
     private String descripcion;

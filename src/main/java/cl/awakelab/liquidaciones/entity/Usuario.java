@@ -13,9 +13,9 @@ import java.util.List;
 public class Usuario {
 
     @Id
-    @Column(nullable = false)
+    @Column(name="id_usuario", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY) //se utiliza para indicar cómo se generará el valor de la clave primaria. se utiliza la estrategia de generación de identidad. lo que significa que la generación del valor se delega al motor de la base de datos.
-    private int id_usuario;
+    private int idUsuario;
 
     @Column(unique = true, nullable = false)
     private int run;
@@ -26,11 +26,11 @@ public class Usuario {
     @Column(length = 100, nullable = false)
     private String nombre;
 
-    @Column(length = 200, nullable = false)
-    private String apellido_1;
+    @Column(name = "apellido_1",length = 200, nullable = false)
+    private String apellido1;
 
-    @Column(length = 100)
-    private String apellido_2;
+    @Column(name = "apellido_2",length = 100)
+    private String apellido2;
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_perfil", nullable = false) //se utiliza para especificar la columna de la tabla de la base de datos que se utilizará para establecer la relación.
@@ -39,8 +39,8 @@ public class Usuario {
     @Column(length = 100, nullable = false)
     private String email;
 
-    @Column(nullable = false)
-    private LocalDateTime fecha_creacion;
+    @Column(name = "fecha_creacion",nullable = false)
+    private LocalDateTime fechaCreacion;
 
     @Column
     private long telefono;

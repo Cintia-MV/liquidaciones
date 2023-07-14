@@ -39,26 +39,26 @@ public class UsuarioImpl implements IUsuarioService{
         usuario.setRun(usuarioActualizar.getRun());
         usuario.setClave(usuarioActualizar.getClave());
         usuario.setNombre(usuarioActualizar.getNombre());
-        usuario.setApellido_1(usuarioActualizar.getApellido_1());
-        usuario.setApellido_2(usuarioActualizar.getApellido_2());
+        usuario.setApellido1(usuarioActualizar.getApellido1());
+        usuario.setApellido2(usuarioActualizar.getApellido2());
         usuario.setPerfil(usuarioActualizar.getPerfil());
         usuario.setEmail(usuarioActualizar.getEmail());
-        usuario.setFecha_creacion(usuarioActualizar.getFecha_creacion());
+        usuario.setFechaCreacion(usuarioActualizar.getFechaCreacion());
         usuario.setTelefono(usuarioActualizar.getTelefono());
         return objUsuarioRepo.save(usuario);
     }
 
     @Override
     public Usuario actualizarUsuario2(Usuario usuarioActualizar) {
-        Usuario usuario = objUsuarioRepo.findById(usuarioActualizar.getId_usuario()).orElseThrow(()->new NoSuchElementException("Usuario no encontrado"));
+        Usuario usuario = objUsuarioRepo.findById(usuarioActualizar.getIdUsuario()).orElseThrow(()->new NoSuchElementException("Usuario no encontrado"));
         usuario.setRun(usuarioActualizar.getRun());
         usuario.setClave(usuarioActualizar.getClave());
         usuario.setNombre(usuarioActualizar.getNombre());
-        usuario.setApellido_1(usuarioActualizar.getApellido_1());
-        usuario.setApellido_2(usuarioActualizar.getApellido_2());
+        usuario.setApellido1(usuarioActualizar.getApellido1());
+        usuario.setApellido2(usuarioActualizar.getApellido2());
         usuario.setPerfil(usuarioActualizar.getPerfil());
         usuario.setEmail(usuarioActualizar.getEmail());
-        usuario.setFecha_creacion(usuarioActualizar.getFecha_creacion());
+        usuario.setFechaCreacion(usuarioActualizar.getFechaCreacion());
         usuario.setTelefono(usuarioActualizar.getTelefono());
         return objUsuarioRepo.save(usuario);
     }

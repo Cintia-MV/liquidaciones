@@ -11,9 +11,9 @@ import java.util.List;
 public class Trabajador {
 
     @Id
-    @Column(nullable = false)
+    @Column(name = "id_trabajador",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_trabajador;
+    private int idTrabajador;
 
     @Column(nullable = false, unique = true)
     private int run;
@@ -21,11 +21,11 @@ public class Trabajador {
     @Column(length = 100, nullable = false)
     private String nombre;
 
-    @Column(length = 100, nullable = false)
-    private String apellido_1;
+    @Column(name = "apellido_1",length = 100, nullable = false)
+    private String apellido1;
 
-    @Column(length = 100)
-    private String apellido_2;
+    @Column(name = "apellido_2",length = 100)
+    private String apellido2;
 
     @Column(length = 100)
     private String email;
