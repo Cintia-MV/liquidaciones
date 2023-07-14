@@ -230,6 +230,10 @@ a {
     text-decoration: none;
 }
 
+.black-icon {
+    color: black;
+  }
+
 .list-unstyled {
     list-style-type: none;
 }
