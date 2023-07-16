@@ -37,6 +37,19 @@ public class UsuarioController {
         return "redirect:/usuario";
     }
 
+    //Registrar usuario sin inicio de sesion con el form registro
+    @GetMapping("/registrar")
+    public String mostrarFormularioRegistro(Model model){
+        return "registro";
+    }
+
+    @PostMapping("/registrar")
+    public String registrarUsuario(@ModelAttribute Usuario usuario){
+        usuario.setFechaCreacion(LocalDateTime.now());
+        objUsuarioService.registrarUsuario(usuario);
+        return "redirect:/login";
+    }
+
     @GetMapping("/{idUsuario}/editar")
     public String mostrarFormularioEditarUsuario(@PathVariable int idUsuario, Model model){
         Usuario usuarioParaEditar = objUsuarioService.buscarUsuarioPorId(idUsuario);
