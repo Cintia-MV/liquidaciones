@@ -38,14 +38,16 @@
                 <td th:text="${usuario.apellido1}"></td>
                 <td th:text="${usuario.email}"></td>
                 <td th:text="${usuario.perfil.descripcion}"></td>
-                <td>
+                <td class="button-cell">
                     <form th:action="@{/usuario/eliminar/{idUsuario}(idUsuario=${usuario.idUsuario})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
                         <button type="submit" name="idUsuario" value="${usuario.idUsuario}" class="icon-button">
-                            <i class="fas fa-trash black-icon me-2"></i>
+                            <i class="fas fa-trash black-icon me-3"></i>
                         </button>
-                        <a href="/editar/${usuario.idUsuario}">
+                    </form>
+                    <form th:action="@{/usuario/eliminar/{idUsuario}(idUsuario=${usuario.idUsuario})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas modificar este usuario?')">
+                        <button type="submit" name="idUsuario" value="${usuario.idUsuario}" class="icon-button">
                             <i class="fas fa-edit black-icon"></i>
-                        </a>
+                        </button>
                     </form>
                 </td>
             </tr>

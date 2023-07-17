@@ -250,3 +250,14 @@ a {
 .list-item-content {
     flex: 1;
 }
+
+.icon-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+.button-cell {
+    display: flex;
+    justify-content: center;
+}
