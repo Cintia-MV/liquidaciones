@@ -39,14 +39,14 @@
                 <td th:text="${usuario.email}"></td>
                 <td th:text="${usuario.perfil.descripcion}"></td>
                 <td>
-                    <a th:href="@{/eliminar/{idUsuario}(idUsuario=${usuario.idUsuario})}"
-                       onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
-                        <i class="fas fa-trash black-icon me-2"></i>
-                    </a>
-
-                    <a href="/editar/${usuario.idUsuario}">
-                        <i class="fas fa-edit black-icon"></i>
-                    </a>
+                    <form th:action="@{/usuario/eliminar/{idUsuario}(idUsuario=${usuario.idUsuario})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?')">
+                        <button type="submit" name="idUsuario" value="${usuario.idUsuario}" class="icon-button">
+                            <i class="fas fa-trash black-icon me-2"></i>
+                        </button>
+                        <a href="/editar/${usuario.idUsuario}">
+                            <i class="fas fa-edit black-icon"></i>
+                        </a>
+                    </form>
                 </td>
             </tr>
             </tbody>

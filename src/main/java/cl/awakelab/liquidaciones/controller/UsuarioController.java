@@ -70,12 +70,13 @@ public class UsuarioController {
         return "eliminarUsuario";
     }
 
-    @PostMapping("/{idUsuario}/eliminar")
-    public String eliminarUsuario(@PathVariable("idUsuario") int idUsuario){
+
+//Eliminar usuario
+    @PostMapping("/eliminar/{idUsuario}")
+    public String eliminarUsuarioPorId(@PathVariable int idUsuario) {
         objUsuarioService.eliminarUsuario2(idUsuario);
         return "redirect:/usuario";
     }
-
 
 
 
