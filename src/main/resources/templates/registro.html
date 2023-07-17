@@ -77,10 +77,10 @@
 <script>
   function confirmarRegistro() {
     // Mostrar ventana de confirmación
-    if (confirm('¿Confirma que los datos del nuevo usuario hay sido ingresados de forma correcta?')) {
+    if (confirm('¿Confirma que los datos del nuevo usuario han sido ingresados de forma correcta.?')) {
       // Mostrar el mensaje de registro exitoso
       var mensajeRegistro = document.getElementById('mensajeRegistro');
-      mensajeRegistro.innerText = 'Usuario registrado con éxito';
+      mensajeRegistro = alert('Usuario registrado con éxito');
       mensajeRegistro.style.display = 'block';
       return true; // Permitir el envío del formulario
     } else {
