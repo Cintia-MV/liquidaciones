@@ -57,7 +57,7 @@ public class UsuarioController {
         return "editarUsuario";
     }
 
-    @PostMapping("/{idUsuario}/editar")
+    @PostMapping("/{idUsuario}/actualizar")
     public String actualizarUsuario(@PathVariable int idUsuario, @ModelAttribute Usuario usuario){
         objUsuarioService.actualizarUsuario2(usuario);
         return "redirect:/usuario";

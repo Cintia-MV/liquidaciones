@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<!-- Barra de navegación -->
+<header th:include="~{../static/html/headerDos.html}"></header>
+<!-- Formulario-->
+<main class="formUsuario">
+    <section class="section-usuario">
+        <div class="container mt-5 mb-4 usuario">
+            <div class="row">
+                <div class="col-s-12">
+                    <form th:action="@{/usuario/{idUsuario}/editar(idUsuario=${usuario.getIdUsuario()})}" id="contactForm" th:method="post">
+                        <h2 class="h2-login">EDITAR USUARIO</h2>
+                        <div class="form-group mb-3">
+                            <label for="run">RUN</label>
+                            <input type="number" class="form-control" id="run" name="run"
+                                   placeholder="Ejemplo: 12345678" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                   placeholder="Ingrese su nombre" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="apellido1">Primer apellido</label>
+                            <input type="text" class="form-control" id="apellido1" name="apellido1"
+                                   placeholder="Ingrese primer apellido" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="apellido2">Segundo apellido (opcional)</label>
+                            <input type="text" class="form-control" id="apellido2" name="apellido2"
+                                   placeholder="Ingrese segundo apellido"  style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="telefono">Teléfono</label>
+                            <input type="number" class="form-control" id="telefono" name="telefono"
+                                   placeholder="Ejemplo: 569xxxxxxxx" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="Ingrese email" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="clave"
+                                   placeholder="Ingrese clave" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="perfil.idPerfil" th:value="2"
+                                       id="inlineRadio1">
+                                <label class="form-check-label" for="inlineRadio1">Empleador</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <!--en el name perfil es el nombre que tengo en la entidad perfil que es un objeto de tipo perfil con nombre perfil-->
+                                <!--el .id_perfil es el atributo id_perfil de la entidad perfil-->
+                                <input class="form-check-input" type="radio" name="perfil.idPerfil" th:value="3"
+                                       id="inlineRadio2">
+                                <label class="form-check-label" for="inlineRadio2">Contador</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-secondary mt-2">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer th:include="~{../static/html/footer.html}"></footer>
+<!-- Script -->
+<script th:include="~{../static/html/script.html}"></script>
+
+</body>
+
+</html>
