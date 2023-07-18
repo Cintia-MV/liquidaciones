@@ -44,7 +44,7 @@
                             <i class="fas fa-trash black-icon me-3"></i>
                         </button>
                     </form>
-                    <form th:action="@{/usuario/{idUsuario}/editar(idUsuario=${usuario.idUsuario})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas modificar este usuario?')">
+                    <form th:action="@{/usuario/editar/{idUsuario}(idUsuario=${usuario.idUsuario})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas modificar este usuario?')">
                         <button type="submit" name="idUsuario" value="${usuario.idUsuario}" class="icon-button">
                             <i class="fas fa-edit black-icon"></i>
                         </button>

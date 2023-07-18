@@ -20,58 +20,58 @@
         <div class="container mt-5 mb-4 usuario">
             <div class="row">
                 <div class="col-s-12">
-                    <form th:action="@{/usuario/{idUsuario}/editar(idUsuario=${usuario.getIdUsuario()})}" id="contactForm" th:method="post">
+                    <form th:action="@{/usuario/actualizar/{idUsuario}(idUsuario=${usuario.getIdUsuario()})}" id="contactForm" th:method="post">
                         <h2 class="h2-login">EDITAR USUARIO</h2>
                         <div class="form-group mb-3">
                             <label for="run">RUN</label>
                             <input type="number" class="form-control" id="run" name="run"
-                                   placeholder="Ejemplo: 12345678" required style="width: 350px; color: black;">
+                                   placeholder="Ejemplo: 12345678" th:value="${usuario.getRun()}" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" id="nombre" name="nombre"
-                                   placeholder="Ingrese su nombre" required style="width: 350px; color: black;">
+                                   placeholder="Ingrese su nombre" th:value="${usuario.getNombre()}" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="apellido1">Primer apellido</label>
                             <input type="text" class="form-control" id="apellido1" name="apellido1"
-                                   placeholder="Ingrese primer apellido" required style="width: 350px; color: black;">
+                                   placeholder="Ingrese primer apellido" th:value="${usuario.getApellido1()}" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="apellido2">Segundo apellido (opcional)</label>
                             <input type="text" class="form-control" id="apellido2" name="apellido2"
-                                   placeholder="Ingrese segundo apellido"  style="width: 350px; color: black;">
+                                   placeholder="Ingrese segundo apellido" th:value="${usuario.getApellido2()}" style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="telefono">Teléfono</label>
                             <input type="number" class="form-control" id="telefono" name="telefono"
-                                   placeholder="Ejemplo: 569xxxxxxxx" required style="width: 350px; color: black;">
+                                   placeholder="Ejemplo: 569xxxxxxxx" th:value="${usuario.getTelefono()}" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                   placeholder="Ingrese email" required style="width: 350px; color: black;">
+                                   placeholder="Ingrese email" th:value="${usuario.getEmail()}" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="clave"
-                                   placeholder="Ingrese clave" required style="width: 350px; color: black;">
+                            <input type="text" class="form-control" id="password" name="clave"
+                                   placeholder="Ingrese clave" th:value="${usuario.getClave()}" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="perfil.idPerfil" th:value="2"
+                                <input class="form-check-input" type="radio" name="perfil.idPerfil" th:value="3" th:checked="${usuario.getPerfil().getIdPerfil() == 3} ? 'true' : 'false'"
                                        id="inlineRadio1">
                                 <label class="form-check-label" for="inlineRadio1">Empleador</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <!--en el name perfil es el nombre que tengo en la entidad perfil que es un objeto de tipo perfil con nombre perfil-->
                                 <!--el .id_perfil es el atributo id_perfil de la entidad perfil-->
-                                <input class="form-check-input" type="radio" name="perfil.idPerfil" th:value="3"
+                                <input class="form-check-input" type="radio" name="perfil.idPerfil" th:value="2" th:checked="${usuario.getPerfil().getIdPerfil() == 2} ? 'true' : 'false'"
                                        id="inlineRadio2">
                                 <label class="form-check-label" for="inlineRadio2">Contador</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-secondary mt-2">Registrar</button>
+                        <button type="submit" class="btn btn-secondary mt-2">Editar</button>
                     </form>
                 </div>
             </div>
