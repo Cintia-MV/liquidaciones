@@ -35,10 +35,7 @@ public class UsuarioRestController {
     public Usuario actualizarUsuario(@RequestBody Usuario usuarioActualizar, @PathVariable int idUsuario){
         return objUsuarioService.actualizarUsuario(usuarioActualizar,idUsuario);
     }
-    @DeleteMapping //Eliminar
-    public void eliminarUsuario(@RequestBody Usuario usuario){
-        objUsuarioService.eliminarUsuario(usuario);
-    }
+
 
     @DeleteMapping("/{idUsuario}")
     public void eliminarUsuario2(@PathVariable int idUsuario){

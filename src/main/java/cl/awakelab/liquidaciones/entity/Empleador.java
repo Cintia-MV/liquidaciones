@@ -44,6 +44,6 @@ public class Empleador {
     @ManyToMany
     @JoinTable(name = "empl_trab", //especifica la tabla intermedia que se utilizará para almacenar la relación.
             joinColumns = @JoinColumn(name = "id_empleador", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "id_trabajador", nullable = false))
+            inverseJoinColumns = @JoinColumn(name = "id_trabajador"))
     private List<Trabajador> trabajadores;
 }
