@@ -8,8 +8,8 @@ import java.util.List;
 public interface IEmpleadorService {
     List<Empleador> listarEmpleador();
     Empleador crearEmpleador(Empleador empleador);
-    Empleador registrarUsuario(Empleador empleador);
+
     Empleador buscarEmpleadorporId(int idUsuario);
     Empleador actualizarEmpleador(Empleador empleador, int idEmpleador);
-    public void eliminarUsuario(int idEmpleador);
+    public void eliminarEmpleador(int idEmpleador);
 }

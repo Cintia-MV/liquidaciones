@@ -39,13 +39,13 @@
                 <td th:text="${empleador.apellido1}"></td>
                 <td th:text="${empleador.email}"></td>
                 <td class="button-cell">
-                    <form >
-                        <button type="submit" name="idUsuario" value="${usuario.idUsuario}" class="icon-button">
+                    <form th:action="@{/empleador/eliminar/{idEmpleador}(idEmpleador=${empleador.idEmpleador})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este empleador?')">
+                        <button type="submit" name="idUsuario"  class="icon-button">
                             <i class="fas fa-trash black-icon me-3"></i>
                         </button>
                     </form>
-                    <form th:action="@{/empleador/editar/{idEmpleador}(idEmpleador=${empleador.idEmpleador})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas modificar este usuario?')">
-                        <button type="submit" name="idUsuario" value="${usuario.idUsuario}" class="icon-button">
+                    <form th:action="@{/empleador/editar/{idEmpleador}(idEmpleador=${empleador.idEmpleador})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas modificar este empleador?')">
+                        <button type="submit" name="idUsuario"  class="icon-button">
                             <i class="fas fa-edit black-icon"></i>
                         </button>
                     </form>
