@@ -20,51 +20,57 @@
         <div class="container mt-5 mb-4 usuario">
             <div class="row">
                 <div class="col-s-12">
-                    <form th:action="@{/empleador/crearEmpleador}" id="contactForm" th:method="post">
+                    <form th:action="@{/empleador/actualizar/{idEmpleador}(idEmpleador=${empleador.getIdEmpleador()})}" id="contactForm" th:method="post">
                         <h2 class="h2-login">CREAR EMPLEADOR</h2>
                         <div class="form-group mb-3">
                             <label for="run">RUN</label>
                             <input type="number" class="form-control" id="run" name="run"
-                                   placeholder="Ejemplo: 12345678" required style="width: 350px; color: black;">
+                                   placeholder="Ejemplo: 12345678" th:value="${empleador.getRun()}" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" id="nombre" name="nombre"
-                                   placeholder="Ingrese su nombre" required style="width: 350px; color: black;">
+                                   placeholder="Ingrese su nombre" th:value="${empleador.getNombre()}" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="apellido1">Primer apellido</label>
                             <input type="text" class="form-control" id="apellido1" name="apellido1"
-                                   placeholder="Ingrese primer apellido" required style="width: 350px; color: black;">
+                                   placeholder="Ingrese primer apellido" th:value="${empleador.getApellido1()}" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="apellido2">Segundo apellido (opcional)</label>
                             <input type="text" class="form-control" id="apellido2" name="apellido2"
-                                   placeholder="Ingrese segundo apellido"  style="width: 350px; color: black;">
+                                   placeholder="Ingrese segundo apellido" th:value="${empleador.getApellido2()}" style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="direccion">Dirección</label>
                             <input type="text" class="form-control" id="direccion" name="direccion"
-                                   placeholder="Ingrese dirección"  style="width: 350px; color: black;">
+                                   placeholder="Ingrese dirección" th:value="${empleador.getDireccion()}" style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                   placeholder="Ingrese email" required style="width: 350px; color: black;">
+                                   placeholder="Ingrese email" th:value="${empleador.getEmail()}" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="telefono">Teléfono</label>
                             <input type="number" class="form-control" id="telefono" name="telefono"
-                                   placeholder="Ejemplo: 569xxxxxxxx" required style="width: 350px; color: black;">
+                                   placeholder="Ejemplo: 569xxxxxxxx" th:value="${empleador.getTelefono()}" required style="width: 350px; color: black;">
                         </div>
+
 
                         <div class="mt-4 mb-3">
                             <label for="usuarioId" class="form-label">Seleccionar Usuario</label>
                             <select class="form-control" id="usuarioId" name="usuarioId">
-                                <option th:each="usuario: ${usuarios}" th:value="${usuario.idUsuario}" th:text="${usuario.nombre + ' ' + usuario.apellido1}"></option>
+                                <!-- Iterar sobre la lista de usuarios disponibles -->
+                                <option th:each="usuario : ${usuarios}"
+                                        th:value="${usuario.idUsuario}"
+                                        th:text="${usuario.nombre + ' ' + usuario.apellido1}"
+                                        th:selected="${usuario.idUsuario == empleador.usuario.idUsuario}" ><!-- Establecer el atributo selected para el usuario actualmente asociado -->
+                                </option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-dark mt-3">Agregar Empleador</button>
+                        <button type="submit" class="btn btn-dark mt-3">Editar</button>
                     </form>
                 </div>
             </div>

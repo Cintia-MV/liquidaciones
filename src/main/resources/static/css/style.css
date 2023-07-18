@@ -160,6 +160,10 @@ input:valid {
     --img: url('https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29tcHV0ZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60');
 }
 
+.formEmpleador{
+    --img: url('https://images.unsplash.com/photo-1548092372-0d1bd40894a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80');
+}
+
 .section-contacto {
     display: flex;
     justify-content: center;
@@ -260,4 +264,8 @@ a {
 .button-cell {
     display: flex;
     justify-content: center;
+}
+
+select option {
+    color: black;
 }

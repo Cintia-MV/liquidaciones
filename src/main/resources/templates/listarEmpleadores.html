@@ -16,7 +16,7 @@
 
 <main class="mb-5 container">
     <h2 class="text-center mt-5">Empleadores</h2>
-    <form class="d-flex" action="/usuario/crearUsuario">
+    <form class="d-flex" action="/empleador/crearEmpleador">
         <button type="submit" class="btn btn-dark">Agregar Empleador</button>
     </form>
     <section class="mt-3">
@@ -44,7 +44,7 @@
                             <i class="fas fa-trash black-icon me-3"></i>
                         </button>
                     </form>
-                    <form >
+                    <form th:action="@{/empleador/editar/{idEmpleador}(idEmpleador=${empleador.idEmpleador})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas modificar este usuario?')">
                         <button type="submit" name="idUsuario" value="${usuario.idUsuario}" class="icon-button">
                             <i class="fas fa-edit black-icon"></i>
                         </button>
