@@ -1,7 +1,6 @@
 package cl.awakelab.liquidaciones.service.serviceimpl;
 
 import cl.awakelab.liquidaciones.entity.Empleador;
-import cl.awakelab.liquidaciones.entity.Usuario;
 import cl.awakelab.liquidaciones.repository.IEmpleadorRepo;
 import cl.awakelab.liquidaciones.service.IEmpleadorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ public class EmpleadorImpl implements IEmpleadorService {
     @Autowired
     IEmpleadorRepo objEmpleadorRepo;
     @Override
-    public List<Empleador> listarEmpleador(){
+    public List<Empleador> listarEmpleadores(){
         return objEmpleadorRepo.findAll();
     }
 
@@ -25,7 +24,7 @@ public class EmpleadorImpl implements IEmpleadorService {
     }
 
     @Override
-    public Empleador buscarEmpleadorporId(int idEmpleador) {
+    public Empleador buscarEmpleadorPorId(int idEmpleador) {
         return objEmpleadorRepo.findById(idEmpleador).orElseThrow(() -> new NoSuchElementException("Empleador no encontrado"));
     }
 

@@ -22,7 +22,7 @@ public class EmpleadorController {
     //LISTAR EMPLEADOR
     @GetMapping
     public String listarEmpleadores(Model model){
-        List<Empleador> listarEmpleador = objEmpleadorService.listarEmpleador();
+        List<Empleador> listarEmpleador = objEmpleadorService.listarEmpleadores();
         model.addAttribute("empleadores", listarEmpleador);
         return "listarEmpleadores";
     }
@@ -48,7 +48,7 @@ public class EmpleadorController {
     // Método para mostrar el formulario para buscar un empleador por su ID
     @GetMapping("/{idEmpleador}")
     public String buscarEmpleadorPorId(@PathVariable int idEmpleador, Model model) {
-        Empleador empleador = objEmpleadorService.buscarEmpleadorporId(idEmpleador);
+        Empleador empleador = objEmpleadorService.buscarEmpleadorPorId(idEmpleador);
         model.addAttribute("empleador", empleador);
         return "redirect:/empleador";
     }
@@ -56,7 +56,7 @@ public class EmpleadorController {
     // Método para mostrar el formulario de edición de un empleador por su ID
     @PostMapping("/editar/{idEmpleador}")
     public String mostrarFormEditarEmpleador(@PathVariable int idEmpleador, Model model) {
-        model.addAttribute("empleador", objEmpleadorService.buscarEmpleadorporId(idEmpleador));
+        model.addAttribute("empleador", objEmpleadorService.buscarEmpleadorPorId(idEmpleador));
         List<Usuario> usuarios = objUsuarioService.listarUsuarios();
         model.addAttribute("usuarios", usuarios);
         return "editarEmpleador";
@@ -74,7 +74,7 @@ public class EmpleadorController {
     //Cuando el usuario confirma la eliminación del empleador desde la vista "eliminarEmpleador", se ejecuta este método.
     @GetMapping("/{idEmpleador}/eliminar")
     public String mostrarEliminarEmpleador(@PathVariable int idEmpleador, Model model){
-        Empleador empleadorEliminar = objEmpleadorService.buscarEmpleadorporId(idEmpleador);
+        Empleador empleadorEliminar = objEmpleadorService.buscarEmpleadorPorId(idEmpleador);
         model.addAttribute("empleador", empleadorEliminar);
         return "eliminarEmpleador";
     }

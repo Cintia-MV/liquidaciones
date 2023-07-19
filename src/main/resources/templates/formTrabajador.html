@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear empleador</title>
+    <title>Crear trabajador</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
@@ -15,13 +15,13 @@
 <!-- Barra de navegación -->
 <header th:include="~{../static/html/headerDos.html}"></header>
 <!-- Formulario-->
-<main class="formEmpleador">
+<main class="formTrabajador">
     <section class="section-usuario">
         <div class="container mt-5 mb-4 usuario">
             <div class="row">
                 <div class="col-s-12">
-                    <form th:action="@{/empleador/crearEmpleador}" id="contactForm" th:method="post">
-                        <h2 class="h2-login">CREAR EMPLEADOR</h2>
+                    <form th:action="@{/trabajador/crearTrabajador}" id="contactForm" th:method="post">
+                        <h2 class="h2-login">CREAR TRABAJADOR</h2>
                         <div class="form-group mb-3">
                             <label for="run">RUN</label>
                             <input type="number" class="form-control" id="run" name="run"
@@ -43,28 +43,28 @@
                                    placeholder="Ingrese segundo apellido"  style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="direccion">Dirección</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion"
-                                   placeholder="Ingrese dirección"  style="width: 350px; color: black;">
+                            <label for="telefono">Teléfono</label>
+                            <input type="number" class="form-control" id="telefono" name="telefono"
+                                   placeholder="Ejemplo: 569xxxxxxxx" required style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email"
                                    placeholder="Ingrese email" required style="width: 350px; color: black;">
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="telefono">Teléfono</label>
-                            <input type="number" class="form-control" id="telefono" name="telefono"
-                                   placeholder="Ejemplo: 569xxxxxxxx" required style="width: 350px; color: black;">
-                        </div>
-
                         <div class="mt-4 mb-3">
-                            <label for="usuarioId" class="form-label">Seleccionar Usuario</label>
-                            <select class="form-control" id="usuarioId" name="usuarioId">
-                                <option th:each="usuario: ${usuarios}" th:value="${usuario.idUsuario}" th:text="${usuario.nombre + ' ' + usuario.apellido1}"></option>
+                            <label for="previsionId" class="form-label">AFP</label>
+                            <select class="form-control" id="previsionId" name="previsionId">
+                                <option th:each="prevision: ${prevision}" th:value="${prevision.idInstPrevision}" th:text="${prevision.descripcion}"></option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-dark mt-3">Agregar Empleador</button>
+                        <div class="mt-4 mb-3">
+                            <label for="saludId" class="form-label">Institución de Salud</label>
+                            <select class="form-control" id="saludId" name="saludId">
+                                <option th:each="salud: ${salud}" th:value="${salud.idInstSalud}" th:text="${salud.descripcion}"></option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-secondary mt-2">Registrar</button>
                     </form>
                 </div>
             </div>
