@@ -74,15 +74,6 @@ public class UsuarioController {
     }
 
     //Eliminar Usuario
-
-    //Cuando el usuario confirma la eliminación del usuario desde la vista "eliminarUsuario", se ejecuta este método.
-    @GetMapping("/{idUsuario}/eliminar")
-    public String mostrarEliminarUsuario(@PathVariable int idUsuario, Model model){ //capturar el valor del ID del usuario desde la URL y asignarlo a la variable idUsuario
-        Usuario usuarioEliminar = objUsuarioService.buscarUsuarioPorId(idUsuario); //Este método busca el usuario en la base de datos utilizando el ID proporcionado y devuelve un objeto Usuario que se desea eliminar.
-        model.addAttribute("usuario", usuarioEliminar); //se agrega este objeto Usuario al modelo con el nombre "usuario" utilizando el método addAttribute() del objeto model
-        return "eliminarUsuario"; //representa el nombre de la vista que se mostrará al usuario para confirmar la eliminación del usuario
-    }
-
     @PostMapping("/eliminar/{idUsuario}")
     public String eliminarUsuarioPorId(@PathVariable int idUsuario) {
         objUsuarioService.eliminarUsuario2(idUsuario); //se pasa el id del usuario para eliminarlo de la base de datos

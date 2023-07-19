@@ -87,13 +87,6 @@ public class TrabajadorController {
     }
 
     //ELIMIAR TRABAJADOR
-   /* @GetMapping("/{idTrabajador}/eliminar")
-    public String mostrarEliminarTrabajador(@PathVariable int idTrabajador, Model model){
-        Trabajador trabajadorEliminar = objTrabajadorService.buscarTrabajadorId(idTrabajador);
-        model.addAttribute("trabajador", trabajadorEliminar);
-        return "eliminarTrabajador";
-    }*/
-
     @PostMapping("/eliminar/{idTrabajador}")
     public String eliminarTrabajadorPorId(@PathVariable int idTrabajador){
         objTrabajadorService.eliminarTrabajador(idTrabajador);

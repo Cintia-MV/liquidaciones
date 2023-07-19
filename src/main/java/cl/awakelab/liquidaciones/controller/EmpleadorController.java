@@ -70,14 +70,6 @@ public class EmpleadorController {
     }
 
     //ELIMINAR EMPLEADOR
-
-    //Cuando el usuario confirma la eliminación del empleador desde la vista "eliminarEmpleador", se ejecuta este método.
-    @GetMapping("/{idEmpleador}/eliminar")
-    public String mostrarEliminarEmpleador(@PathVariable int idEmpleador, Model model){
-        Empleador empleadorEliminar = objEmpleadorService.buscarEmpleadorPorId(idEmpleador);
-        model.addAttribute("empleador", empleadorEliminar);
-        return "eliminarEmpleador";
-    }
     @PostMapping("/eliminar/{idEmpleador}")
     public String eliminarEmpleadorPorId(@PathVariable int idEmpleador) {
         objEmpleadorService.eliminarEmpleador(idEmpleador);
