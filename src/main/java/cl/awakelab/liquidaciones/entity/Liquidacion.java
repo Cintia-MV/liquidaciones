@@ -15,7 +15,7 @@ public class Liquidacion {
     private long idLiquidacion;
 
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_trabajador", nullable = false)
     private Trabajador trabajador;
 

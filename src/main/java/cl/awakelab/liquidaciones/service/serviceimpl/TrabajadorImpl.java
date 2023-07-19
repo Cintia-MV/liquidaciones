@@ -44,7 +44,7 @@ public class TrabajadorImpl implements ITrabajadorService {
     }
 
     @Override
-    public void elimiarTrabajador(int idTrabajador) {
-        objTrabajadorRepo.deleteById(idTrabajador);
+    public void eliminarTrabajador(int idTrabajador) {
+        objTrabajadorRepo.deleteById(idTrabajador); ;
     }
 }

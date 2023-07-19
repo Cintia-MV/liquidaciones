@@ -42,8 +42,8 @@ public class Trabajador {
     @Column(nullable = false)
     private long telefono;
 
-    @OneToMany
-    List<Liquidacion> listaTrabajadores;
+    @OneToMany(mappedBy = "trabajador")
+    List<Liquidacion> listaLiquidacion;
 
     @ManyToMany(mappedBy = "trabajadores")
     private List<Empleador> listaEmpleadores;
