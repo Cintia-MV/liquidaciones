@@ -39,7 +39,7 @@
                 <td th:text="${trabajador.apellido1}"></td>
                 <td th:text="${trabajador.email}"></td>
                 <td class="button-cell">
-                    <form >
+                    <form th:action="@{/trabajador/eliminar/{idTrabajador}(idTrabajador=${trabajador.idTrabajador})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este trabajador?')">
                         <button type="submit" name="idUsuario"  class="icon-button">
                             <i class="fas fa-trash black-icon me-3"></i>
                         </button>

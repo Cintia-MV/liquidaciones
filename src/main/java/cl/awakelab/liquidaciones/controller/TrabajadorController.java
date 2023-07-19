@@ -85,4 +85,18 @@ public class TrabajadorController {
         objTrabajadorService.actualizarTrabajador(trabajador, idTrabajador);
         return "redirect:/trabajador";
     }
+
+    //ELIMIAR TRABAJADOR
+    @GetMapping("/{idTrabajador}/eliminar")
+    public String mostrarEliminarTrabajador(@PathVariable int idTrabajador, Model model){
+        Trabajador trabajadorEliminar = objTrabajadorService.buscarTrabajadorId(idTrabajador);
+        model.addAttribute("trabajador", trabajadorEliminar);
+        return "elimiarTrabajador";
+    }
+
+    @PostMapping("/eliminar/{idTrabajador}")
+    public String eliminarTrabajadorPorId(@PathVariable int idTrabajador){
+        objTrabajadorService.elimiarTrabajador(idTrabajador);
+        return "redirect:/trabajador";
+    }
 }
