@@ -32,6 +32,7 @@ public class TrabajadorController {
         return "listarTrabajadores";
     }
 
+    //CREAR TRABAJADOR
     @GetMapping("/crearTrabajador")
     public String mostrarFormCrearTrabajador(Model model){
         List<InstitucionPrevisional> prevision = objPrevisionService.listarPrevision();
@@ -53,5 +54,35 @@ public class TrabajadorController {
         objTrabajadorService.crearTrabajador(trabajador);
         return "redirect:/trabajador";
 
+    }
+
+    //ACTUALIZAR TRABAJADOR
+    @GetMapping("/{idTrabajador}")
+    public String buscarTrabajadorPorId(@PathVariable int idTrabajador, Model model){
+        Trabajador trabajador = objTrabajadorService.buscarTrabajadorId(idTrabajador);
+        model.addAttribute("trabajador", trabajador);
+        return "redirect:/trabajador";
+    }
+
+    @PostMapping("/editar/{idTrabajador}")
+    public String mostrarFormTrabajador(@PathVariable int idTrabajador, Model model){
+        model.addAttribute("trabajador", objTrabajadorService.buscarTrabajadorId(idTrabajador));
+        List<InstitucionPrevisional> prevision = objPrevisionService.listarPrevision();
+        List<InstitucionSalud> salud = objSaludService.listarSalud();
+        model.addAttribute("prevision", prevision);
+        model.addAttribute("salud", salud);
+        return "editarTrabajador";
+    }
+
+    @PostMapping("/actualizar/{idTrabajador}")
+    public String actualizarTrabajador(@ModelAttribute Trabajador trabajador, @PathVariable int idTrabajador,
+                                       @RequestParam("previsionId") int previsionId,
+                                       @RequestParam("saludId") int saludId){
+        InstitucionPrevisional prevision = objPrevisionService.buscarPrevisionPorId(previsionId);
+        InstitucionSalud salud = objSaludService.buscarSaludPorId(saludId);
+        trabajador.setInstPrevision(prevision);
+        trabajador.setInstSalud(salud);
+        objTrabajadorService.actualizarTrabajador(trabajador, idTrabajador);
+        return "redirect:/trabajador";
     }
 }

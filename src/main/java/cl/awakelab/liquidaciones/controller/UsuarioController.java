@@ -69,7 +69,6 @@ public class UsuarioController {
     // Método para actualizar un usuario
     @PostMapping("/actualizar/{idUsuario}")
     public String actualizarUsuario(@ModelAttribute Usuario usuario, @PathVariable int idUsuario) { //@ModelAttribute Usuario usuario y @PathVariable int idUsuario se utilizan para capturar el objeto Usuario con los datos actualizados y el ID del usuario desde la URL, respectivamente.
-        usuario.setFechaCreacion(LocalDateTime.now());
         objUsuarioService.actualizarUsuario(usuario, idUsuario); //llamo al método actualizarUsuario(usuario, idUsuario) del servicio IUsuarioService, pasando el objeto Usuario actualizado y el ID del usuario para actualizar los datos en la base de datos.
         return "redirect:/usuario";
     }

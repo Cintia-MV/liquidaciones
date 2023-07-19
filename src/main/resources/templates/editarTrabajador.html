@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar trabajador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<!-- Barra de navegación -->
+<header th:include="~{../static/html/headerDos.html}"></header>
+<!-- Formulario-->
+<main class="formTrabajador">
+    <section class="section-usuario">
+        <div class="container mt-5 mb-4 usuario">
+            <div class="row">
+                <div class="col-s-12">
+                    <form th:action="@{/trabajador/actualizar/{idTrabajador}(idTrabajador=${trabajador.getIdTrabajador()})}" id="contactForm" th:method="post">
+                        <h2 class="h2-login">EDITAR TRABAJADOR</h2>
+                        <div class="form-group mb-3">
+                            <label for="run">RUN</label>
+                            <input type="number" class="form-control" id="run" name="run"
+                                   placeholder="Ejemplo: 12345678" th:value="${trabajador.getRun()}" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                   placeholder="Ingrese su nombre" th:value="${trabajador.getNombre()}" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="apellido1">Primer apellido</label>
+                            <input type="text" class="form-control" id="apellido1" name="apellido1"
+                                   placeholder="Ingrese primer apellido" th:value="${trabajador.getApellido1()}" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="apellido2">Segundo apellido (opcional)</label>
+                            <input type="text" class="form-control" id="apellido2" name="apellido2"
+                                   placeholder="Ingrese segundo apellido" th:value="${trabajador.getApellido2()}" style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="telefono">Teléfono</label>
+                            <input type="number" class="form-control" id="telefono" name="telefono"
+                                   placeholder="Ejemplo: 569xxxxxxxx" th:value="${trabajador.getTelefono()}" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="Ingrese email" th:value="${trabajador.getEmail()}" required style="width: 350px; color: black;">
+                        </div>
+
+
+
+                        <div class="mt-4 mb-3">
+                            <label for="previsionId" class="form-label">AFP</label>
+                            <select class="form-control" id="previsionId" name="previsionId">
+                                <!-- Iterar sobre la lista de usuarios disponibles -->
+                                <option th:each="prevision : ${prevision}"
+                                        th:value="${prevision.idInstPrevision}"
+                                        th:text="${prevision.descripcion}"
+                                        th:selected="${prevision.idInstPrevision == trabajador.instPrevision.idInstPrevision}"><!-- Establecer el atributo selected para el usuario actualmente asociado -->
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mt-4 mb-3">
+                            <label for="saludId" class="form-label">Institución de Salud</label>
+                            <select class="form-control" id="saludId" name="saludId">
+                                <!-- Iterar sobre la lista de usuarios disponibles -->
+                                <option th:each="salud: ${salud}"
+                                        th:value="${salud.idInstSalud}"
+                                        th:text="${salud.descripcion}"
+                                        th:selected="${salud.idInstSalud == trabajador.instSalud.idInstSalud}" ><!-- Establecer el atributo selected para el usuario actualmente asociado -->
+                                </option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-dark mt-3">Editar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer th:include="~{../static/html/footer.html}"></footer>
+<!-- Script -->
+<script th:include="~{../static/html/script.html}"></script>
+
+</body>
+
+</html>

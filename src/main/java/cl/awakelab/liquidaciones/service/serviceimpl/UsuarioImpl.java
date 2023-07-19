@@ -43,7 +43,6 @@ public class UsuarioImpl implements IUsuarioService{
         usuario.setApellido2(usuarioActualizar.getApellido2());
         usuario.setPerfil(usuarioActualizar.getPerfil());
         usuario.setEmail(usuarioActualizar.getEmail());
-        usuario.setFechaCreacion(usuarioActualizar.getFechaCreacion());
         usuario.setTelefono(usuarioActualizar.getTelefono());
         return objUsuarioRepo.save(usuario);
     }
