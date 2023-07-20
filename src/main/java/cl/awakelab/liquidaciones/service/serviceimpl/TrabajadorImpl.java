@@ -20,7 +20,7 @@ public class TrabajadorImpl implements ITrabajadorService {
 
     @Override
     public Trabajador crearTrabajador(Trabajador trabajador) {
-        trabajador.setListaEmpleadores(trabajador.getListaEmpleadores());
+        trabajador.setListaEmpleadores(trabajador.getListaEmpleadores()); //No se está usando
         return objTrabajadorRepo.save(trabajador);
     }
 

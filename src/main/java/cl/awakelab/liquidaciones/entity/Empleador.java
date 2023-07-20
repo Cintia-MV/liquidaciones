@@ -40,10 +40,14 @@ public class Empleador {
     @Column
     private long telefono;
 
-    //Relacion muchos a muchos de la tabla intermedia
-    @ManyToMany
+    //Lo que está comentado era cómo lo tenía antes, por eso no poblaba la tabla intermedia
+    /*@ManyToMany
     @JoinTable(name = "empl_trab", //especifica la tabla intermedia que se utilizará para almacenar la relación.
             joinColumns = @JoinColumn(name = "id_empleador", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "id_trabajador"))
+    private List<Trabajador> trabajadores;*/
+
+    //Relación muchos a muchos
+    @ManyToMany(mappedBy = "listaEmpleadores")
     private List<Trabajador> trabajadores;
 }
