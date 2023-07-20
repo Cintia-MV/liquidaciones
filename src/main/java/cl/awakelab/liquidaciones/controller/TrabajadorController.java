@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -24,6 +25,8 @@ public class TrabajadorController {
     IPrevisionService objPrevisionService;
     @Autowired
     ISaludService objSaludService;
+    @Autowired
+    IEmpleadorService objEmpleadorService;
 
     @GetMapping
     public String listarTrabajadores(Model model){
@@ -37,8 +40,10 @@ public class TrabajadorController {
     public String mostrarFormCrearTrabajador(Model model){
         List<InstitucionPrevisional> prevision = objPrevisionService.listarPrevision();
         List<InstitucionSalud> salud = objSaludService.listarSalud();
+        List<Empleador> empleador = objEmpleadorService.listarEmpleadores();
         model.addAttribute("prevision", prevision);
         model.addAttribute("salud", salud);
+        model.addAttribute("empleador", empleador);
         model.addAttribute("trabajador", new Trabajador());
         return "formTrabajador";
     }
@@ -46,11 +51,16 @@ public class TrabajadorController {
     @PostMapping("/crearTrabajador")
     public String crearTrabajador(@ModelAttribute Trabajador trabajador,
                                   @RequestParam("previsionId") int previsionId,
-                                  @RequestParam("saludId") int saludId){
+                                  @RequestParam("saludId") int saludId,
+                                  @RequestParam("empleadorId") int empleadorId){
         InstitucionPrevisional prevision = objPrevisionService.buscarPrevisionPorId(previsionId);
         InstitucionSalud salud = objSaludService.buscarSaludPorId(saludId);
+        Empleador empleador = objEmpleadorService.buscarEmpleadorPorId(empleadorId);
         trabajador.setInstPrevision(prevision);
         trabajador.setInstSalud(salud);
+        List<Empleador> listaEmpleadores = new ArrayList<>();
+        listaEmpleadores.add(empleador);
+        trabajador.setListaEmpleadores(listaEmpleadores);
         objTrabajadorService.crearTrabajador(trabajador);
         return "redirect:/trabajador";
 

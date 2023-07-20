@@ -64,6 +64,12 @@
                                 <option th:each="salud: ${salud}" th:value="${salud.idInstSalud}" th:text="${salud.descripcion}"></option>
                             </select>
                         </div>
+                        <div class="mt-4 mb-3">
+                            <label for="empleadorId" class="form-label">Empleador</label>
+                            <select class="form-control" id="empleadorId" name="empleadorId">
+                                <option th:each="empleador: ${empleador}" th:value="${empleador.idEmpleador}" th:text="${empleador.nombre + ' ' + empleador.apellido1}"></option>
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-secondary mt-2">Registrar</button>
                     </form>
                 </div>
