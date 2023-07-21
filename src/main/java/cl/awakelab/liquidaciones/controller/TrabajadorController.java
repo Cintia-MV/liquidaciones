@@ -50,16 +50,16 @@ public class TrabajadorController {
 
     @PostMapping("/crearTrabajador")
     public String crearTrabajador(@ModelAttribute Trabajador trabajador,
-                                  @RequestParam("previsionId") int previsionId,
+                                  @RequestParam("previsionId") int previsionId, //Aquí se está obteniendo una institución previsional (objeto de la clase "InstitucionPrevisional") mediante un servicio llamado "objPrevisionService" que busca la institución por su ID, utilizando el valor del parámetro "previsionId".
                                   @RequestParam("saludId") int saludId,
                                   @RequestParam("empleadorId") int empleadorId){
-        InstitucionPrevisional prevision = objPrevisionService.buscarPrevisionPorId(previsionId);
+        InstitucionPrevisional prevision = objPrevisionService.buscarPrevisionPorId(previsionId); //Se establece la institución previsional obtenida en el paso 3 al atributo "instPrevision" del objeto "trabajador".
         InstitucionSalud salud = objSaludService.buscarSaludPorId(saludId);
         Empleador empleador = objEmpleadorService.buscarEmpleadorPorId(empleadorId);
         trabajador.setInstPrevision(prevision);
         trabajador.setInstSalud(salud);
-        List<Empleador> listaEmpleadores = new ArrayList<>();
-        listaEmpleadores.add(empleador);
+        List<Empleador> listaEmpleadores = new ArrayList<>(); //Se crea una nueva lista llamada "listaEmpleadores" que almacenará objetos de la clase "Empleador".
+        listaEmpleadores.add(empleador); //se agrega el objeto empleador a la lista empleadores
         trabajador.setListaEmpleadores(listaEmpleadores);
         objTrabajadorService.crearTrabajador(trabajador);
         return "redirect:/trabajador";
