@@ -39,7 +39,7 @@
                 <td th:text="${liquidacion.sueldoImponible}"></td>
                 <td th:text="${liquidacion.sueldoLiquido}"></td>
                 <td class="button-cell">
-                    <form >
+                    <form th:action="@{/liquidacion/eliminar/{idLiquidacion}(idLiquidacion=${liquidacion.idLiquidacion})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta liquidación?')">
                         <button type="submit" name="idUsuario"  class="icon-button">
                             <i class="fas fa-trash black-icon me-3"></i>
                         </button>

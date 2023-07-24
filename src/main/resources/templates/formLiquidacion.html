@@ -17,14 +17,21 @@
 <!-- Formulario-->
 <main class="formTrabajador">
     <section class="section-usuario">
-        <div class="container mt-5 mb-4 usuario">
+        <div class="container mt-5 mb-4 liquidacion">
             <div class="row">
                 <div class="col-s-12">
                     <form th:action="@{/liquidacion/crearLiquidacion}" id="contactForm" th:method="post">
                         <h2 class="h2-login">CREAR LIQUIDACIOÓN</h2>
-                        <div class="form-group mb-3">
-                            <label for="nombre">Trabajador</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required style="width: 350px; color: black;">
+                        <div class="mt-4 mb-3">
+                            <label for="trabajadorId" class="form-label">Trabajador</label>
+                            <select class="form-control" id="trabajadorId" name="trabajadorId">
+                                <!-- Iterar sobre la lista de empleadores disponibles -->
+                                <option th:each="trabajador: ${trabajador}"
+                                        th:value="${trabajador.idTrabajador}"
+                                        th:text="${trabajador.nombre + ' ' + trabajador.apellido1}">
+                                </option>
+
+                            </select>
                         </div>
                         <div class="form-group mb-3">
                             <label for="sueldoImponible">Sueldo imponible</label>
@@ -34,50 +41,46 @@
                         <!-- Institución salud-->
                         <div class="mt-4 mb-3">
                             <label for="saludId" class="form-label">Institución de Salud</label>
-                            <input class="form-control" type="text" value="Valor seleccionado" aria-label="Disabled input example" disabled readonly>
-                            <select class="form-control" id="saludId">
-                                <option th:each="salud : ${salud}" th:value="${salud.idInstSalud}" th:text="${salud.descripcion}" th:selected="${salud.idInstSalud == selectedSaludId}"></option>
+                            <select class="form-control" id="saludId" name="saludId">
+                                <option th:each="salud : ${salud}"
+                                        th:value="${salud.idInstSalud}"
+                                        th:text="${salud.descripcion}"
+                                        th:selected="${salud.idInstSalud == salud?.idInstSalud}"></option>
                             </select>
                         </div>
                     <!-- monto salud -->
                         <div class="mt-4 mb-3">
                             <label for="montoSalud" class="form-label">Monto Salud</label>
-                            <input class="form-control" type="text" value="Valor seleccionado" aria-label="Disabled input example" disabled readonly>
-                            <select class="form-control" id="montoSalud">
-                                <option th:each="salud : ${salud}" th:value="${salud.idInstSalud}" th:text="${salud.descripcion}" th:selected="${salud.idInstSalud == selectedSaludId}"></option>
-                            </select>
+                            <input id="montoSalud" class="form-control" type="text" th:value="${montoSalud}" aria-label="Disabled input example" disabled readonly>
                         </div>
-                    <!-- AFP -->
+
+                        <!-- AFP -->
                         <div class="mt-4 mb-3">
                             <label for="previsionId" class="form-label">AFP</label>
                             <select class="form-control" id="previsionId" name="previsionId">
-                                <option th:each="prevision: ${prevision}" th:value="${prevision.idInstPrevision}" th:text="${prevision.descripcion}"></option>
+                                <option th:each="prevision: ${prevision}"
+                                        th:value="${prevision.idInstPrevision}"
+                                        th:text="${prevision.descripcion}"
+                                        th:selected="${prevision.idInstPrevision == prevision.idInstPrevision}"></option>
                             </select>
                         </div>
                         <!-- Monto AFP -->
                         <div class="mt-4 mb-3">
                             <label for="montoAfp" class="form-label">Monto afp</label>
-                            <input class="form-control" type="text" value="Valor seleccionado" aria-label="Disabled input example" disabled readonly>
-                            <select class="form-control" id="montoAfp">
-                                <option th:each="prevision : ${prevision}" th:value="${prevision.idInstPrevision}" th:text="${prevision.descripcion}" th:selected="${prevision.idInstPrevision == selectedPrevisionId}"></option>
-                            </select>
+                            <input id="montoAfp" class="form-control" type="text" value="Monto AFP" aria-label="Disabled input example" disabled readonly>
                         </div>
 
                         <!-- Total descuentos -->
                         <div class="mt-4 mb-3">
-                            <label for="totalDscts" class="form-label">Monto afp</label>
-                            <input class="form-control" type="text" value="Valor seleccionado" aria-label="Disabled input example" disabled readonly>
-                            <select class="form-control" id="totalDscts">
-                                <option th:each="prevision : ${prevision}" th:value="${prevision.idInstPrevision}" th:text="${prevision.descripcion}" th:selected="${prevision.idInstPrevision == selectedPrevisionId}"></option>
-                            </select>
+                            <label for="totalDscts" class="form-label">Total Descuentos</label>
+                            <input id="totalDscts" class="form-control" type="text" value="Total descuentos" aria-label="Disabled input example" disabled readonly>
                         </div>
                         <!-- Total haberes -->
                         <div class="mt-4 mb-3">
-                            <label for="empleadorId" class="form-label">Empleador</label>
-                            <select class="form-control" id="empleadorId" name="empleadorId">
-                                <option th:each="empleador: ${empleador}" th:value="${empleador.idEmpleador}" th:text="${empleador.nombre + ' ' + empleador.apellido1}"></option>
-                            </select>
+                            <label for="totalHaberes" class="form-label">Total Haberes</label>
+                            <input id="totalHaberes" class="form-control" type="text" value="Total haber" aria-label="Disabled input example" disabled readonly>
                         </div>
+                        <!-- Anticipo -->
                         <div class="form-group mb-3">
                             <label for="anticipo">Anticipo</label>
                             <input type="number" class="form-control" id="anticipo" name="anticipo"
@@ -85,10 +88,8 @@
                         </div>
                         <!-- Sueldo liquido -->
                         <div class="mt-4 mb-3">
-                            <label for="sueldoLiquido" class="form-label">Empleador</label>
-                            <select class="form-control" id="sueldoLiquido" name="sueldoLiquido">
-                                <option th:each="empleador: ${empleador}" th:value="${empleador.idEmpleador}" th:text="${empleador.nombre + ' ' + empleador.apellido1}"></option>
-                            </select>
+                            <label for="sueldoLiquido" class="form-label">Sueldo Liquido</label>
+                            <input id="sueldoLiquido" class="form-control" type="text" value="Sueldo liquido" aria-label="Disabled input example" disabled readonly>
                         </div>
                         <button type="submit" class="btn btn-secondary mt-2">Crear Liquidación</button>
                     </form>
@@ -102,6 +103,9 @@
 <footer th:include="~{../static/html/footer.html}"></footer>
 <!-- Script -->
 <script th:include="~{../static/html/script.html}"></script>
+
+<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script> -->
 
 </body>
 

@@ -273,3 +273,18 @@ a {
 select option {
     color: black;
 }
+
+.liquidacion{
+    position: relative;
+    width: 550px;
+    height: 1100px;
+    background: #23232a81;
+    border: 2px solid rgba(255, 255, 255, 0.56);
+    backdrop-filter: blur(1px);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.7s;
+    color: #FFF;
+}
