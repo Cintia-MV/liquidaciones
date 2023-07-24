@@ -79,19 +79,26 @@ public class TrabajadorController {
         model.addAttribute("trabajador", objTrabajadorService.buscarTrabajadorId(idTrabajador));
         List<InstitucionPrevisional> prevision = objPrevisionService.listarPrevision();
         List<InstitucionSalud> salud = objSaludService.listarSalud();
+        List<Empleador> empleador = objEmpleadorService.listarEmpleadores();
         model.addAttribute("prevision", prevision);
         model.addAttribute("salud", salud);
+        model.addAttribute("empleador", empleador);
         return "editarTrabajador";
     }
 
     @PostMapping("/actualizar/{idTrabajador}")
     public String actualizarTrabajador(@ModelAttribute Trabajador trabajador, @PathVariable int idTrabajador,
                                        @RequestParam("previsionId") int previsionId,
-                                       @RequestParam("saludId") int saludId){
+                                       @RequestParam("saludId") int saludId,
+                                       @RequestParam("empleadorId") int empleadorId){
         InstitucionPrevisional prevision = objPrevisionService.buscarPrevisionPorId(previsionId);
         InstitucionSalud salud = objSaludService.buscarSaludPorId(saludId);
+        Empleador empleador = objEmpleadorService.buscarEmpleadorPorId(empleadorId);
         trabajador.setInstPrevision(prevision);
         trabajador.setInstSalud(salud);
+        List<Empleador> listaEmpleadores = new ArrayList<>(); //Se crea una nueva lista llamada "listaEmpleadores" que almacenará objetos de la clase "Empleador".
+        listaEmpleadores.add(empleador); //se agrega el objeto empleador a la lista empleadores
+        trabajador.setListaEmpleadores(listaEmpleadores);
         objTrabajadorService.actualizarTrabajador(trabajador, idTrabajador);
         return "redirect:/trabajador";
     }

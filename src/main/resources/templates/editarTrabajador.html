@@ -53,12 +53,10 @@
                                    placeholder="Ingrese email" th:value="${trabajador.getEmail()}" required style="width: 350px; color: black;">
                         </div>
 
-
-
                         <div class="mt-4 mb-3">
                             <label for="previsionId" class="form-label">AFP</label>
                             <select class="form-control" id="previsionId" name="previsionId">
-                                <!-- Iterar sobre la lista de usuarios disponibles -->
+                                <!-- Iterar sobre las afp disponible -->
                                 <option th:each="prevision : ${prevision}"
                                         th:value="${prevision.idInstPrevision}"
                                         th:text="${prevision.descripcion}"
@@ -69,12 +67,25 @@
                         <div class="mt-4 mb-3">
                             <label for="saludId" class="form-label">Institución de Salud</label>
                             <select class="form-control" id="saludId" name="saludId">
-                                <!-- Iterar sobre la lista de usuarios disponibles -->
+                                <!-- Iterar sobre la lista de inst salud disponibles -->
                                 <option th:each="salud: ${salud}"
                                         th:value="${salud.idInstSalud}"
                                         th:text="${salud.descripcion}"
                                         th:selected="${salud.idInstSalud == trabajador.instSalud.idInstSalud}" ><!-- Establecer el atributo selected para el usuario actualmente asociado -->
                                 </option>
+                            </select>
+                        </div>
+                        <div class="mt-4 mb-3">
+                            <label for="empleadorId" class="form-label">Empleadores</label>
+                            <select class="form-control" id="empleadorId" name="empleadorId">
+                                <!-- Iterar sobre la lista de empleadores disponibles -->
+                                <option th:each="empleador: ${empleador}"
+                                        th:value="${empleador.idEmpleador}"
+                                        th:text="${empleador.nombre + ' ' + empleador.apellido1}"
+                                        th:th:selected="${trabajador.listaEmpleadores.contains(empleador)}">
+
+                                </option>
+
                             </select>
                         </div>
                         <button type="submit" class="btn btn-dark mt-3">Editar</button>

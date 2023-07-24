@@ -20,7 +20,7 @@
         <div class="container mt-5 mb-4 usuario">
             <div class="row">
                 <div class="col-s-12">
-                    <form th:action="@{/usuario/actualizar/{idUsuario}(idUsuario=${usuario.getIdUsuario()})}" id="contactForm" th:method="post">
+                    <form th:action="@{/usuario/actualizar/{idUsuario}(idUsuario=${usuario.getIdUsuario()})}" id="contactForm" th:method="post"> //(idUsuario=${usuario.getIdUsuario()}): Esta es una expresión de atributo de Thymeleaf que se utiliza para pasar datos dinámicos al atributo de la URL. En este caso, está tomando el valor del idUsuario del objeto usuario y lo está insertando en la URL para que el controlador pueda identificar qué usuario se está actualizando.
                         <h2 class="h2-login">EDITAR USUARIO</h2>
                         <div class="form-group mb-3">
                             <label for="run">RUN</label>
