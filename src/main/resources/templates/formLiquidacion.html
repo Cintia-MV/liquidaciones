@@ -54,16 +54,12 @@
                             <input id="montoSalud" class="form-control" type="text" th:value="${montoSalud}" aria-label="Disabled input example" disabled readonly>
                         </div>
 
-                        <!-- AFP -->
+                        <!-- Nombre de la AFP -->
                         <div class="mt-4 mb-3">
-                            <label for="previsionId" class="form-label">AFP</label>
-                            <select class="form-control" id="previsionId" name="previsionId">
-                                <option th:each="prevision: ${prevision}"
-                                        th:value="${prevision.idInstPrevision}"
-                                        th:text="${prevision.descripcion}"
-                                        th:selected="${prevision.idInstPrevision == prevision.idInstPrevision}"></option>
-                            </select>
+                            <label for="nombreAfp" class="form-label">Nombre AFP</label>
+                            <input id="nombreAfp" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
                         </div>
+
                         <!-- Monto AFP -->
                         <div class="mt-4 mb-3">
                             <label for="montoAfp" class="form-label">Monto afp</label>
@@ -104,8 +100,8 @@
 <!-- Script -->
 <script th:include="~{../static/html/script.html}"></script>
 
-<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-<script src="/js/main.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
 
 </body>
 

@@ -5,6 +5,7 @@ import cl.awakelab.liquidaciones.entity.InstitucionSalud;
 import cl.awakelab.liquidaciones.entity.Liquidacion;
 import cl.awakelab.liquidaciones.repository.ILiquidacionRepo;
 import cl.awakelab.liquidaciones.service.ILiquidacionService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class LiquidacionImpl implements ILiquidacionService {
     }
 
     @Override
+    @Transactional
     public Liquidacion crearLiquidacion(Liquidacion liquidacion) {
         // Obtener el sueldo imponible ingresado por el usuario en el formulario
         int sueldoImponible = liquidacion.getSueldoImponible();

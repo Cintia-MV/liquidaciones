@@ -63,7 +63,6 @@ public class TrabajadorController {
         trabajador.setListaEmpleadores(listaEmpleadores);
         objTrabajadorService.crearTrabajador(trabajador);
         return "redirect:/trabajador";
-
     }
 
     //ACTUALIZAR TRABAJADOR

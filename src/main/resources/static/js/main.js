@@ -1,49 +1,27 @@
+$(document).ready(function() {
+    // Crear un objeto o mapa que mapee los IDs de las AFP a sus nombres
+    const afpNombres = {
+        1: 'Capital',
+        2: 'Cuprum',
+        3: 'Habitat',
+        4: 'PlanVital',
+        5: 'ProVida',
+        6: 'Modelo',
+        7: 'Uno'
+    };
 
-    $(document).ready(function () {
-    // Función para calcular montos y actualizar campos
-    function calcularMontos() {
-        var sueldoImponible = parseInt($("#sueldoImponible").val());
-        var montoAfp = sueldoImponible * parseFloat($("#porcentajeAfp").val()) / 100;
-        var montoSalud = sueldoImponible * parseFloat($("#porcentajeSalud").val()) / 100;
-        var totalDescuentos = montoAfp + montoSalud + parseInt($("#anticipo").val());
-        var sueldoLiquido = sueldoImponible - totalDescuentos;
+    let trabajador = document.querySelector("#trabajadorId")
+    console.log(trabajador)
+    // Cuando el valor del select de trabajador cambie
+    $("#trabajadorId").change(function() {
+        // Obtén el ID de la AFP asociada al trabajador seleccionado
+        const afpId = $(this).children("option:selected");
 
-        $("#montoAfp").val(montoAfp);
-        $("#montoSalud").val(montoSalud);
-        $("#totalDscts").val(totalDescuentos);
-        $("#sueldoLiquido").val(sueldoLiquido);
-    }
+        console.log(afpId);
+        // Obtén el nombre de la AFP a partir del objeto o mapa
+        const nombreAfp = afpNombres[afpId];
 
-    // Detectar el cambio en el select de trabajador
-    $("#trabajadorId").change(function () {
-    var trabajadorId = $(this).val();
-
-    // Realizar una llamada a tu controlador para obtener la información de AFP y la institución de salud
-    $.ajax({
-    url: "/obtenerInformacionTrabajador",
-    type: "GET",
-    data: {trabajadorId: trabajadorId},
-    success: function (data) {
-    // Actualizar el select de AFP con la opción correspondiente al trabajador seleccionado
-    var previsionSelect = $("#previsionId");
-    previsionSelect.val(data.afpId);
-
-    // Actualizar el select de institución de salud con la opción correspondiente al trabajador seleccionado
-    var saludSelect = $("#saludId");
-    saludSelect.val(data.saludId);
-
-    // Calcular montos y actualizar campos
-    calcularMontos();
-},
-    error: function () {
-    console.log("Error al obtener la información del trabajador");
-}
+        // Asigna el nombre de la AFP al campo de nombreAfp
+        $("#nombreAfp").val(nombreAfp);
+    });
 });
-});
-
-    // Detectar cambios en los campos para calcular montos en tiempo real
-    $("#sueldoImponible, #porcentajeAfp, #porcentajeSalud, #anticipo").on('input', function () {
-    calcularMontos();
-});
-})
-

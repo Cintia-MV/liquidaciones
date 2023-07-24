@@ -23,9 +23,9 @@
                     <form th:action="@{/trabajador/actualizar/{idTrabajador}(idTrabajador=${trabajador.getIdTrabajador()})}" id="contactForm" th:method="post">
                         <h2 class="h2-login">EDITAR TRABAJADOR</h2>
                         <div class="form-group mb-3">
-                            <label for="run">RUN</label>
+                            <label for="run" class="form-label">RUN</label>
                             <input type="number" class="form-control" id="run" name="run"
-                                   placeholder="Ejemplo: 12345678" th:value="${trabajador.getRun()}" required style="width: 350px; color: black;">
+                                    th:value="${trabajador.getRun()}" aria-label="Disabled input example" disabled readonly style="width: 350px; color: black;">
                         </div>
                         <div class="form-group mb-3">
                             <label for="nombre">Nombre</label>
