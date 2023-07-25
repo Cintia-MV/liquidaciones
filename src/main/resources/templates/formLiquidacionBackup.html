@@ -51,37 +51,30 @@
                     <!-- monto salud -->
                         <div class="mt-4 mb-3">
                             <label for="montoSalud" class="form-label">Monto Salud</label>
-                            <input id="montoSalud" class="form-control" type="number" name="montoSalud"  required style="width: 350px; color: black;">
+                            <input id="montoSalud" class="form-control" type="text" th:value="${montoSalud}" aria-label="Disabled input example" disabled readonly>
                         </div>
 
                         <!-- Nombre de la AFP -->
                         <div class="mt-4 mb-3">
-                            <label for="previsionId" class="form-label">AFP</label>
-                            <select id="previsionId" class="form-control" name="previsionId">
-                                <option
-                                th:each="prevision: ${prevision}"
-                                th:value="${prevision.idInstPrevision}"
-                                th:text="${prevision.descripcion}"
-                                th:selected="${prevision.idInstPrevision == prevision?.idInstPrevision}">
-                                </option>
-                            </select>
+                            <label for="nombreAfp" class="form-label">Nombre AFP</label>
+                            <input id="nombreAfp" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
                         </div>
 
                         <!-- Monto AFP -->
                         <div class="mt-4 mb-3">
                             <label for="montoAfp" class="form-label">Monto afp</label>
-                            <input id="montoAfp" class="form-control" type="number"  name="montoAfp" required style="width: 350px; color: black;">
+                            <input id="montoAfp" class="form-control" type="text" value="Monto AFP" aria-label="Disabled input example" disabled readonly>
                         </div>
 
                         <!-- Total descuentos -->
                         <div class="mt-4 mb-3">
                             <label for="totalDscts" class="form-label">Total Descuentos</label>
-                            <input id="totalDscts" class="form-control" type="text"  name="totalDscts" required style="width: 350px; color: black;">
+                            <input id="totalDscts" class="form-control" type="text" value="Total descuentos" aria-label="Disabled input example" disabled readonly>
                         </div>
                         <!-- Total haberes -->
                         <div class="mt-4 mb-3">
                             <label for="totalHaberes" class="form-label">Total Haberes</label>
-                            <input id="totalHaberes" class="form-control" type="text"  name="totalHaber" required style="width: 350px; color: black;">
+                            <input id="totalHaberes" class="form-control" type="text" value="Total haber" aria-label="Disabled input example" disabled readonly>
                         </div>
                         <!-- Anticipo -->
                         <div class="form-group mb-3">
@@ -92,7 +85,7 @@
                         <!-- Sueldo liquido -->
                         <div class="mt-4 mb-3">
                             <label for="sueldoLiquido" class="form-label">Sueldo Liquido</label>
-                            <input id="sueldoLiquido" class="form-control" type="text"  required style="width: 350px; color: black;">
+                            <input id="sueldoLiquido" class="form-control" type="text" value="Sueldo liquido" aria-label="Disabled input example" disabled readonly>
                         </div>
                         <button type="submit" class="btn btn-secondary mt-2">Crear Liquidación</button>
                     </form>

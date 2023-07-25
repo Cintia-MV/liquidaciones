@@ -22,7 +22,6 @@ public class LiquidacionImpl implements ILiquidacionService {
     }
 
     @Override
-    @Transactional
     public Liquidacion crearLiquidacion(Liquidacion liquidacion) {
         // Obtener el sueldo imponible ingresado por el usuario en el formulario
         int sueldoImponible = liquidacion.getSueldoImponible();
@@ -79,7 +78,6 @@ public class LiquidacionImpl implements ILiquidacionService {
     public Liquidacion actualizarLiquidacion(Liquidacion liquidacionActualizar, long idLiquidacion) {
         Liquidacion liquidacion = objLiquidacionRepo.findById(idLiquidacion).orElseThrow(() -> new NoSuchElementException("Liquidación no encontrada"));
         liquidacion.setTrabajador(liquidacionActualizar.getTrabajador());
-        liquidacion.setPeriodo(liquidacionActualizar.getPeriodo());
         liquidacion.setSueldoImponible(liquidacionActualizar.getSueldoImponible());
         liquidacion.setSueldoLiquido(liquidacionActualizar.getSueldoLiquido());
         liquidacion.setIdInstSalud(liquidacionActualizar.getIdInstSalud());

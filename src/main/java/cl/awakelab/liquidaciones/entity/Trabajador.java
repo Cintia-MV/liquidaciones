@@ -1,5 +1,6 @@
 package cl.awakelab.liquidaciones.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -43,6 +44,7 @@ public class Trabajador {
     private long telefono;
 
     @OneToMany(mappedBy = "trabajador")
+    @JsonIgnore
     List<Liquidacion> listaLiquidacion;
 
     //Así estaba y no poblaba la tabla intermedia
@@ -54,5 +56,6 @@ public class Trabajador {
     @JoinTable(name = "empl_trab", //especifica la tabla intermedia que se utilizará para almacenar la relación.
             joinColumns = @JoinColumn(name = "id_trabajador", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "id_empleador", nullable = false))
+    @JsonIgnore
     private List<Empleador> listaEmpleadores;
 }

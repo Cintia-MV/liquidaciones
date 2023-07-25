@@ -44,7 +44,7 @@
                             <i class="fas fa-trash black-icon me-3"></i>
                         </button>
                     </form>
-                    <form >
+                    <form th:action="@{/liquidacion/editar/{idLiquidacion}(idLiquidacion=${liquidacion.idLiquidacion})}" th:method="post" onsubmit="return confirm('¿Estás seguro de que deseas modificar esta liquidación?')">
                         <button type="submit" name="idUsuario"  class="icon-button">
                             <i class="fas fa-edit black-icon"></i>
                         </button>

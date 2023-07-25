@@ -20,8 +20,8 @@
         <div class="container mt-5 mb-4 liquidacion">
             <div class="row">
                 <div class="col-s-12">
-                    <form th:action="@{/liquidacion/crearLiquidacion}" id="contactForm" th:method="post">
-                        <h2 class="h2-login">CREAR LIQUIDACIOÓN</h2>
+                    <form th:action="@{/liquidacion/actualizar/{idLiquidacion}(idLiquidacion=${liquidacion.getIdLiquidacion()})}" id="contactForm" th:method="post">
+                        <h2 class="h2-login">EDITAR LIQUIDACIOÓN</h2>
                         <div class="mt-4 mb-3">
                             <label for="trabajadorId" class="form-label">Trabajador</label>
                             <select class="form-control" id="trabajadorId" name="trabajadorId">
@@ -81,7 +81,7 @@
                         <!-- Total haberes -->
                         <div class="mt-4 mb-3">
                             <label for="totalHaberes" class="form-label">Total Haberes</label>
-                            <input id="totalHaberes" class="form-control" type="text"  name="totalHaber" required style="width: 350px; color: black;">
+                            <input id="totalHaberes" class="form-control" type="number"  name="totalHaber" required style="width: 350px; color: black;">
                         </div>
                         <!-- Anticipo -->
                         <div class="form-group mb-3">
@@ -92,9 +92,9 @@
                         <!-- Sueldo liquido -->
                         <div class="mt-4 mb-3">
                             <label for="sueldoLiquido" class="form-label">Sueldo Liquido</label>
-                            <input id="sueldoLiquido" class="form-control" type="text"  required style="width: 350px; color: black;">
+                            <input id="sueldoLiquido" class="form-control" type="number"  name="sueldoLiquido" required style="width: 350px; color: black;">
                         </div>
-                        <button type="submit" class="btn btn-secondary mt-2">Crear Liquidación</button>
+                        <button type="submit" class="btn btn-secondary mt-2">Editar Liquidación</button>
                     </form>
                 </div>
             </div>

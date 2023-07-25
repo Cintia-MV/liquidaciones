@@ -1,5 +1,6 @@
 package cl.awakelab.liquidaciones.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -49,5 +50,6 @@ public class Empleador {
 
     //Relación muchos a muchos
     @ManyToMany(mappedBy = "listaEmpleadores")
+    @JsonIgnore
     private List<Trabajador> trabajadores;
 }

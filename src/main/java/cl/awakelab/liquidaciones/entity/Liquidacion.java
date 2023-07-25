@@ -1,5 +1,6 @@
 package cl.awakelab.liquidaciones.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,6 +18,7 @@ public class Liquidacion {
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_trabajador", nullable = false)
+    @JsonIgnore
     private Trabajador trabajador;
 
     @Column(nullable = false)
