@@ -25,13 +25,15 @@
                         <div class="mt-4 mb-3">
                             <label for="trabajadorId" class="form-label">Trabajador</label>
                             <select class="form-control" id="trabajadorId" name="trabajadorId">
-                                <!-- Iterar sobre la lista de empleadores disponibles -->
+                                <!-- Opción para seleccionar trabajador -->
+                                <option value="" disabled selected>Seleccionar trabajador</option>
                                 <option th:each="trabajador: ${trabajador}"
                                         th:value="${trabajador.idTrabajador}"
                                         th:text="${trabajador.nombre + ' ' + trabajador.apellido1}">
                                 </option>
                             </select>
                         </div>
+
                         <div class="form-group mb-3">
                             <label for="sueldoImponible">Sueldo imponible</label>
                             <input type="number" class="form-control" id="sueldoImponible" name="sueldoImponible"
@@ -40,47 +42,57 @@
                         <!-- Institución salud-->
                         <div class="mt-4 mb-3">
                             <label for="nombreSalud" class="form-label">Institucion de Salud</label>
-                            <input id="nombreSalud" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
+                            <input id="nombreSalud" name="saludId" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
+                            <!-- Campo oculto para el ID de la institución de salud -->
+                            <input type="hidden" id="idSalud" name="saludId">
                         </div>
 
                     <!-- monto salud -->
                         <div class="mt-4 mb-3">
                             <label for="montoSalud" class="form-label">Monto Salud</label>
-                            <input id="montoSalud" class="form-control" type="number" name="montoSalud"  required style="width: 350px; color: black;">
+                            <input id="montoSalud" class="form-control" type="number" name="montoSalud"  aria-label="Disabled input example" disabled readonly>
+                            <input type="hidden" id="idMontoSalud" name="montoSalud">
                         </div>
 
                         <!-- Nombre de la AFP -->
                         <div class="mt-4 mb-3">
                             <label for="nombreAfp" class="form-label">Nombre AFP</label>
-                            <input id="nombreAfp" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
+                            <input id="nombreAfp" name="previsionId" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
+                            <!-- Campo oculto para el ID de la institución de salud -->
+                            <input type="hidden" id="idPrevision" name="previsionId">
                         </div>
 
                         <!-- Monto AFP -->
                         <div class="mt-4 mb-3">
                             <label for="montoAfp" class="form-label">Monto afp</label>
-                            <input id="montoAfp" class="form-control" type="number"  name="montoAfp" required style="width: 350px; color: black;">
+                            <input id="montoAfp" class="form-control" type="number"  name="montoAfp" aria-label="Disabled input example" disabled readonly>
+                            <input type="hidden" id="idMontoAFP" name="montoAfp">
                         </div>
 
                         <!-- Total descuentos -->
                         <div class="mt-4 mb-3">
                             <label for="totalDscts" class="form-label">Total Descuentos</label>
-                            <input id="totalDscts" class="form-control" type="text"  name="totalDscts" required style="width: 350px; color: black;">
+                            <input id="totalDscts" class="form-control" type="number"  name="totalDscts" aria-label="Disabled input example" disabled readonly>
+                            <input type="hidden" id="idTotalDscts" name="totalDscts">
                         </div>
                         <!-- Total haberes -->
                         <div class="mt-4 mb-3">
-                            <label for="totalHaberes" class="form-label">Total Haberes</label>
-                            <input id="totalHaberes" class="form-control" type="text"  name="totalHaber" required style="width: 350px; color: black;">
+                            <label for="totalHaber" class="form-label">Total Haberes</label>
+                            <input id="totalHaber" class="form-control" type="number"  name="totalHaber" aria-label="Disabled input example" disabled readonly>
+                            <input type="hidden" id="idTotalHaber" name="totalHaber">
                         </div>
                         <!-- Anticipo -->
                         <div class="form-group mb-3">
                             <label for="anticipo">Anticipo</label>
                             <input type="number" class="form-control" id="anticipo" name="anticipo"
-                                   placeholder="Ingrese anticipo" required style="width: 350px; color: black;">
+                                    placeholder="Ingrese anticipo" required style="width: 350px; color: black;">
+                            <input type="hidden" id="idAnticipo" name="anticipo">
                         </div>
                         <!-- Sueldo liquido -->
                         <div class="mt-4 mb-3">
                             <label for="sueldoLiquido" class="form-label">Sueldo Liquido</label>
-                            <input id="sueldoLiquido" class="form-control" type="text"  required style="width: 350px; color: black;">
+                            <input id="sueldoLiquido" class="form-control" type="number"  placeholder="Sueldo a pagar" required style="width: 350px; color: black;">
+                            <input type="hidden" id="idSueldoLiquido" name="sueldoLiquido">
                         </div>
                         <button type="submit" class="btn btn-secondary mt-2">Crear Liquidación</button>
                     </form>

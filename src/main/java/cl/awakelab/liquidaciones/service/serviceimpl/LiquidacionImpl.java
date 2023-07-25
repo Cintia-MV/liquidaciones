@@ -23,48 +23,6 @@ public class LiquidacionImpl implements ILiquidacionService {
 
     @Override
     public Liquidacion crearLiquidacion(Liquidacion liquidacion) {
-        // Obtener el sueldo imponible ingresado por el usuario en el formulario
-        int sueldoImponible = liquidacion.getSueldoImponible();
-
-        // Obtener la AFP del trabajador desde la entidad Liquidacion
-        InstitucionPrevisional afpTrabajador = liquidacion.getIdInstPrevisional();
-
-        // Obtener el porcentaje de descuento de AFP correspondiente a la AFP del trabajador desde la tabla "institucion_prevision"
-        double porcentajeAFP = afpTrabajador.getPorcDcto();
-
-        // Calcular el monto de AFP
-        int montoAFP = (int) (sueldoImponible * (porcentajeAFP / 100.0)); // Dividimos por 100 para convertir el porcentaje a decimal
-
-        //CALCULAR DESCUENTO DE SALUD
-
-        // Obtener la institución de salud del trabajador desde la entidad Liquidacion
-        InstitucionSalud saludTrabajador = liquidacion.getIdInstSalud();
-
-        // Obtener el porcentaje de descuento de salud correspondiente a la institución de salud del trabajador desde la tabla "institucion_salud"
-        double porcentajeSalud = saludTrabajador.getPorcDcto();
-
-        // Calcular el monto de descuento de salud
-        int montoSalud = (int) (sueldoImponible * (porcentajeSalud / 100.0)); // Dividimos por 100 para convertir el porcentaje a decimal
-
-        // Calcular el total de descuentos sumando el descuento de AFP y el descuento de salud
-        int totalDescuento = montoAFP + montoSalud;
-
-        // Obtener el anticipo ingresado por el usuario en el formulario
-        int anticipo = liquidacion.getAnticipo();
-
-        // Calcular el sueldo líquido restando los descuentos y el anticipo del total de haberes
-        int totalHaberes = sueldoImponible;
-        int sueldoLiquido = totalHaberes - totalDescuento - anticipo;
-
-        // Asignar los cálculos a la liquidación
-        liquidacion.setMontoInstSalud(montoSalud);
-        liquidacion.setMontoInstPrevisional(montoAFP);
-        liquidacion.setTotalDescuento(totalDescuento);
-        liquidacion.setTotalHaberes(totalHaberes);
-        liquidacion.setAnticipo(anticipo);
-        liquidacion.setSueldoLiquido(sueldoLiquido);
-
-        // Guardar la liquidación en la base de datos
         return objLiquidacionRepo.save(liquidacion);
     }
 
