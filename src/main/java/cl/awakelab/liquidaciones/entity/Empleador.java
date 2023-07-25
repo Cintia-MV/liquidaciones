@@ -33,7 +33,7 @@ public class Empleador {
     @Column(length = 100)
     private String email;
 
-    //relacion con tabla usuario
+    @JsonIgnore
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;

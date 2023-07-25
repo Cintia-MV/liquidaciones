@@ -30,7 +30,7 @@ public class Liquidacion {
     @Column(name = "sueldo_liquido",nullable = false)
     private int sueldoLiquido;
 
-    //@Column
+    @JsonIgnore
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_salud", nullable = false)
     private InstitucionSalud idInstSalud;
@@ -38,7 +38,7 @@ public class Liquidacion {
     @Column(name = "monto_inst_salud",nullable = false)
     private int montoInstSalud;
 
-    //@Column
+    @JsonIgnore
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_previsional", nullable = false)
     private InstitucionPrevisional idInstPrevisional;

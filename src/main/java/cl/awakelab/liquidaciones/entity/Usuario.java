@@ -1,5 +1,6 @@
 package cl.awakelab.liquidaciones.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -32,6 +33,7 @@ public class Usuario {
     @Column(name = "apellido_2",length = 100)
     private String apellido2;
 
+    @JsonIgnore
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_perfil", nullable = false) //se utiliza para especificar la columna de la tabla de la base de datos que se utilizará para establecer la relación.
     private Perfil perfil;
@@ -45,6 +47,7 @@ public class Usuario {
     @Column
     private long telefono;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario") //hace referencia al atributo tipo Usuario de la clase empleador
     private List<Empleador> empleadores;
 

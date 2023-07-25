@@ -32,9 +32,11 @@ public class Trabajador {
     private String email;
 
 
+
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_prevision", nullable = false)
     private InstitucionPrevisional instPrevision;
+
 
     @ManyToOne(optional = false,fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_salud", nullable = false)
@@ -43,8 +45,8 @@ public class Trabajador {
     @Column(nullable = false)
     private long telefono;
 
-    @OneToMany(mappedBy = "trabajador")
     @JsonIgnore
+    @OneToMany(mappedBy = "trabajador")
     List<Liquidacion> listaLiquidacion;
 
     //Así estaba y no poblaba la tabla intermedia
@@ -52,10 +54,10 @@ public class Trabajador {
     private List<Empleador> listaEmpleadores;*/
 
     //Relacion muchos a muchos de la tabla intermedia
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "empl_trab", //especifica la tabla intermedia que se utilizará para almacenar la relación.
             joinColumns = @JoinColumn(name = "id_trabajador", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "id_empleador", nullable = false))
-    @JsonIgnore
     private List<Empleador> listaEmpleadores;
 }

@@ -1,5 +1,6 @@
 package cl.awakelab.liquidaciones.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,9 +20,11 @@ public class InstitucionSalud {
     @Column(name = "porc_dcto",nullable = false)
     private float porcDcto;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "instSalud")
     List<Trabajador> listaTrabajadores;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "idInstSalud")
     List<Liquidacion> liquidacionesSalud;
 

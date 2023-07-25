@@ -1,5 +1,6 @@
 package cl.awakelab.liquidaciones.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class Perfil {
     private boolean estado;
 
     //indica que un perfil puede tener varios usuarios
+    @JsonIgnore
     @OneToMany(mappedBy = "perfil")// la relación es mapeada por el atributo perfil
     private List<Usuario> usuarios;
 
