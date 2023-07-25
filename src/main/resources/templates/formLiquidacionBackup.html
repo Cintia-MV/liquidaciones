@@ -40,13 +40,8 @@
                         </div>
                         <!-- Institución salud-->
                         <div class="mt-4 mb-3">
-                            <label for="saludId" class="form-label">Institución de Salud</label>
-                            <select class="form-control" id="saludId" name="saludId">
-                                <option th:each="salud : ${salud}"
-                                        th:value="${salud.idInstSalud}"
-                                        th:text="${salud.descripcion}"
-                                        th:selected="${salud.idInstSalud == salud?.idInstSalud}"></option>
-                            </select>
+                            <label for="nombreSalud" class="form-label">Institucion de Salud</label>
+                            <input id="nombreSalud" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
                         </div>
                     <!-- monto salud -->
                         <div class="mt-4 mb-3">

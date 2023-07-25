@@ -30,7 +30,6 @@
                                         th:value="${trabajador.idTrabajador}"
                                         th:text="${trabajador.nombre + ' ' + trabajador.apellido1}">
                                 </option>
-
                             </select>
                         </div>
                         <div class="form-group mb-3">
@@ -40,14 +39,10 @@
                         </div>
                         <!-- Institución salud-->
                         <div class="mt-4 mb-3">
-                            <label for="saludId" class="form-label">Institución de Salud</label>
-                            <select class="form-control" id="saludId" name="saludId">
-                                <option th:each="salud : ${salud}"
-                                        th:value="${salud.idInstSalud}"
-                                        th:text="${salud.descripcion}"
-                                        th:selected="${salud.idInstSalud == salud?.idInstSalud}"></option>
-                            </select>
+                            <label for="nombreSalud" class="form-label">Institucion de Salud</label>
+                            <input id="nombreSalud" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
                         </div>
+
                     <!-- monto salud -->
                         <div class="mt-4 mb-3">
                             <label for="montoSalud" class="form-label">Monto Salud</label>
@@ -56,15 +51,8 @@
 
                         <!-- Nombre de la AFP -->
                         <div class="mt-4 mb-3">
-                            <label for="previsionId" class="form-label">AFP</label>
-                            <select id="previsionId" class="form-control" name="previsionId">
-                                <option
-                                th:each="prevision: ${prevision}"
-                                th:value="${prevision.idInstPrevision}"
-                                th:text="${prevision.descripcion}"
-                                th:selected="${prevision.idInstPrevision == prevision?.idInstPrevision}">
-                                </option>
-                            </select>
+                            <label for="nombreAfp" class="form-label">Nombre AFP</label>
+                            <input id="nombreAfp" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
                         </div>
 
                         <!-- Monto AFP -->
@@ -108,7 +96,7 @@
 <script th:include="~{../static/html/script.html}"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/script.js}"></script>
 
 </body>
 
