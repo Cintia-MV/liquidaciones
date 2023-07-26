@@ -288,3 +288,9 @@ select option {
     transition: 0.7s;
     color: #FFF;
 }
+
+/* Estilo para campos de solo lectura pero que se enviarán en el formulario */
+.readonly {
+    background-color: #f2f2f2;
+    pointer-events: none;
+}

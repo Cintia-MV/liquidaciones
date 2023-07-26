@@ -26,7 +26,6 @@ public class LiquidacionImpl implements ILiquidacionService {
         return objLiquidacionRepo.save(liquidacion);
     }
 
-
     @Override
     public Liquidacion buscarLiquidacionId(long idLiquidacion) {
         return objLiquidacionRepo.findById(idLiquidacion).orElseThrow(() ->new NoSuchElementException("Liquidacion no encontrada"));

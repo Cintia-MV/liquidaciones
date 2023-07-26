@@ -31,6 +31,9 @@ $(document).ready(() => {
                 porcentajeAfp1 = trabajador.instPrevision.porcDcto;
                 porcentajeSalud1 = trabajador.instSalud.porcDcto;
 
+                // Mostrar el nombre del trabajador seleccionado
+                document.getElementById("trabajadorId").innerText = trabajador.nombre + " " + trabajador.apellido1 + " " + trabajador.apellido2;
+
                 //AGREGO LA AFP QUE CORRESPONDE AL TRABAJADOR EN EL FORMULARIO
                 const nombreAfp = document.getElementById("idPrevision");
                 const optionAfp = document.createElement("option");
@@ -99,7 +102,6 @@ $(document).ready(() => {
         //AGREGO EL TOTAL DE DESCUENTOS EN EL FORMULARIO
         const inputTotalDsct = document.getElementById("totalDscts");
         inputTotalDsct.value = totalDescuentos;
-
 
         //AGREGO EL TOTAL DE HABERES EN EL FORMULARIO
         const inputTotalHaber = document.getElementById("totalHaber");
