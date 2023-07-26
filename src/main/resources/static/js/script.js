@@ -32,19 +32,19 @@ $(document).ready(() => {
                 porcentajeSalud1 = trabajador.instSalud.porcDcto;
 
                 //AGREGO LA AFP QUE CORRESPONDE AL TRABAJADOR EN EL FORMULARIO
-                const nombreAfp = document.getElementById("nombreAfp");
-                nombreAfp.value = descripcionPrevision;
+                const nombreAfp = document.getElementById("idPrevision");
+                const optionAfp = document.createElement("option");
+                optionAfp.value = idPrevision;
+                optionAfp.text = descripcionPrevision;
+                nombreAfp.appendChild(optionAfp);
 
                 //AGREGO LA INST. DE SALUD QUE CORRESPONDE AL TRABAJADOR EN EL FORMULARIO
-                const nombreSalud = document.getElementById("nombreSalud");
-                nombreSalud.value = descripcionSalud;
+                const nombreSalud = document.getElementById("idSalud");
+                const optionSalud = document.createElement("option");
+                optionSalud.value = idSalud;
+                optionSalud.text =descripcionSalud;
+                nombreSalud.appendChild(optionSalud);
 
-                // Agrego el ID de la institución de salud al campo oculto
-                const idSaludInput = document.getElementById("idSalud");
-                idSaludInput.value = idSalud;
-
-                const idAfpInput = document.getElementById("idPrevision");
-                idAfpInput.value = idPrevision;
 
                 // Imprimir los datos por consola
                 console.log("Trabajador ID:", trabajador.idTrabajador);
@@ -57,8 +57,6 @@ $(document).ready(() => {
                 console.log(porcentajeAfp1)
                 console.log("--------------------------------------");
 
-                // Calcular los datos cuando se obtiene la información del trabajador
-                //calcularDatos();
             })
             .catch((error) => {
                 console.error("Error al obtener los datos:", error);

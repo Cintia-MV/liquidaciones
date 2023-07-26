@@ -41,45 +41,43 @@
                         </div>
                         <!-- Institución salud-->
                         <div class="mt-4 mb-3">
-                            <label for="nombreSalud" class="form-label">Institucion de Salud</label>
-                            <input id="nombreSalud" name="saludId" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
-                            <!-- Campo oculto para el ID de la institución de salud -->
-                            <input type="hidden" id="idSalud" name="saludId">
+                            <label class="form-label">Institucion de Salud</label>
+                            <select name="saludId" class="form-select" id="idSalud"></select>
+
                         </div>
 
                     <!-- monto salud -->
                         <div class="mt-4 mb-3">
                             <label for="montoSalud" class="form-label">Monto Salud</label>
-                            <input id="montoSalud" class="form-control" type="number" aria-label="Disabled input example" disabled readonly>
-                            <input type="hidden" id="idMontoSalud" name="montoSalud">
+                            <input id="montoSalud" class="form-control" type="number"   readonly>
+                            <input type="hidden" id="idMontoSalud" name="montoInstSalud">
                         </div>
 
                         <!-- Nombre de la AFP -->
                         <div class="mt-4 mb-3">
-                            <label for="nombreAfp" class="form-label">Nombre AFP</label>
-                            <input id="nombreAfp" name="previsionId" class="form-control" type="text" aria-label="Disabled input example" disabled readonly>
-                            <!-- Campo oculto para el ID de la institución de salud -->
-                            <input type="hidden" id="idPrevision" name="previsionId">
+                            <label class="form-label">Institucion AFP</label>
+                            <select name="previsionId" class="form-select" id="idPrevision"></select>
+
                         </div>
 
                         <!-- Monto AFP -->
                         <div class="mt-4 mb-3">
                             <label for="montoAfp" class="form-label">Monto afp</label>
-                            <input id="montoAfp" class="form-control" type="number"  aria-label="Disabled input example" disabled readonly>
-                            <input type="hidden" id="idMontoAFP" name="montoAfp">
+                            <input id="montoAfp" class="form-control" type="number"   readonly>
+                            <input type="hidden" id="idMontoAFP" name="montoInstPrevisional">
                         </div>
 
                         <!-- Total descuentos -->
                         <div class="mt-4 mb-3">
                             <label for="totalDscts" class="form-label">Total Descuentos</label>
-                            <input id="totalDscts" class="form-control" type="number"  aria-label="Disabled input example" disabled readonly>
-                            <input type="hidden" id="idTotalDscts" name="totalDscts">
+                            <input id="totalDscts" class="form-control" type="number"    readonly>
+                            <input type="hidden" id="idTotalDscts" name="totalDescuento">
                         </div>
                         <!-- Total haberes -->
                         <div class="mt-4 mb-3">
                             <label for="totalHaber" class="form-label">Total Haberes</label>
-                            <input id="totalHaber" class="form-control" type="number"  aria-label="Disabled input example" readonly>
-                            <input type="hidden" id="idTotalHaber" name="totalHaber">
+                            <input id="totalHaber" class="form-control" type="number"   readonly>
+                            <input type="hidden" id="idTotalHaber" name="totalHaberes">
                         </div>
                         <!-- Anticipo -->
                         <div class="form-group mb-3">

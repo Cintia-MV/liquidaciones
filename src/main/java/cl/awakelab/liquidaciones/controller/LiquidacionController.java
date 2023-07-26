@@ -49,8 +49,7 @@ public class LiquidacionController {
     public String crearLiquidacion(@ModelAttribute Liquidacion liquidacion,
                                   @RequestParam("trabajadorId") int trabajadorId,
                                   @RequestParam("saludId") int saludId,
-                                  @RequestParam("previsionId")int previsionId,
-                                  Model model) {
+                                  @RequestParam("previsionId")int previsionId) {
         liquidacion.setPeriodo(LocalDate.now());
         Trabajador trabajador = objTrabajadorService.buscarTrabajadorId(trabajadorId);
         InstitucionPrevisional prevision = objPrevisionService.buscarPrevisionPorId(previsionId);
