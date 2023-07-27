@@ -18,7 +18,6 @@ public class Liquidacion {
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_trabajador", nullable = false)
-    @JsonIgnore
     private Trabajador trabajador;
 
     @Column(nullable = false)

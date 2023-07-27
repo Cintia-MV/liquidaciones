@@ -31,8 +31,6 @@ $(document).ready(() => {
                 porcentajeAfp1 = trabajador.instPrevision.porcDcto;
                 porcentajeSalud1 = trabajador.instSalud.porcDcto;
 
-                // Mostrar el nombre del trabajador seleccionado
-                document.getElementById("trabajadorId").innerText = trabajador.nombre + " " + trabajador.apellido1 + " " + trabajador.apellido2;
 
                 //AGREGO LA AFP QUE CORRESPONDE AL TRABAJADOR EN EL FORMULARIO
                 const nombreAfp = document.getElementById("idPrevision");
@@ -47,18 +45,6 @@ $(document).ready(() => {
                 optionSalud.value = idSalud;
                 optionSalud.text =descripcionSalud;
                 nombreSalud.appendChild(optionSalud);
-
-
-                // Imprimir los datos por consola
-                console.log("Trabajador ID:", trabajador.idTrabajador);
-                console.log("Nombre completo:", trabajador.nombre + " " + trabajador.apellido1 + " " + trabajador.apellido2);
-                console.log("Id de la institución de salud:", idSalud);
-                console.log("Descripción de la institución de salud:", descripcionSalud);
-                console.log("Id de la institución previsional:", idPrevision);
-                console.log("Descripción de la institución previsional:", descripcionPrevision);
-                console.log("porcentajes: ", porcentajeSalud1)
-                console.log(porcentajeAfp1)
-                console.log("--------------------------------------");
 
             })
             .catch((error) => {
@@ -137,7 +123,5 @@ $(document).ready(() => {
     };
 
     document.getElementById("sueldoImponible").addEventListener("change", calcularDatos);
-
-
 
 });
