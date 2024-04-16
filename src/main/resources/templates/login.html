@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,38 +8,14 @@
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/static/images/logo_sprint6.png" alt="Logo" width="30" height="24"
-                     class="d-inline-block align-text-top">
-                Sprint 6
-            </a>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse pe-5" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Registrarse</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" style="white-space: nowrap;">Iniciar Sesión</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<!-- Barra de navegación -->
+<header th:include="~{../static/html/header.html}"></header>
+
+<!-- Formulario inicio sesión -->
 <main>
     <section class="section-login">
         <div class="form-box">
@@ -49,24 +24,26 @@
                     <h2 class="h2-login">Inicio Sesión</h2>
                     <div class="inputbox">
                         <i class="fa-regular fa-user icon"></i>
-                        <input type="number" required>
-                        <label for="">Run</label>
+                        <input type="number" id="run" name="run" >
+                        <label for="run">Run</label>
                     </div>
                     <div class="inputbox">
                         <i class="fa-solid fa-lock icon"></i>
-                        <input type="password" required>
-                        <label for="">Clave</label>
+                        <input type="password" id="clave" name="clave">
+                        <label for="clave">Clave</label>
                     </div>
                     <div class="forget">
-                        <label for="">
+                        <label for="olvClave" id="olvClave" name="olvClave">
                             <a href="#">Olvidé mi clave</a>
                         </label>
                     </div>
+                    <form class="d-flex" action="/bienvenida">
                     <button class="button-login">Iniciar Sesión</button>
+                    </form>
                     <div class="registrer">
                         <p>
                             ¿No tienes una cuenta?
-                            <a href="">Regístrate</a>
+                            <a href="/usuario/registrar">Regístrate</a>
                         </p>
                     </div>
                 </form>
@@ -74,15 +51,10 @@
         </div>
     </section>
 </main>
-<footer class="d-flex flex-column align-items-center" style="background-color: #dadada;">
-    <h3 class="text-center mt-2">Sprint Módulo 6</h3>
-    <i class="fab fa-github-square fa-2x"></i>
-    <p class="mt-2">@BootcampJava2023</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/bec9f83658.js" crossorigin="anonymous"></script>
+<!-- Footer -->
+<footer th:include="~{../static/html/footer.html}"></footer>
+<!-- Script -->
+<script th:include="~{../static/html/script.html}"></script>
 </body>
 
 </html>

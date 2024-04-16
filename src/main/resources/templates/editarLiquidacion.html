@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear liquidación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<!-- Barra de navegación -->
+<header th:include="~{../static/html/headerDos.html}"></header>
+<!-- Formulario-->
+<main class="formTrabajador">
+    <section class="section-usuario">
+        <div class="container mt-5 mb-4 liquidacion">
+            <div class="row">
+                <div class="col-s-12">
+                    <form th:action="@{/liquidacion/actualizar/{idLiquidacion}(idLiquidacion=${liquidacion.getIdLiquidacion()})}"
+                          id="contactForm"
+                          th:method="post"
+                          th:data-liquidacion-id="${liquidacion.getIdLiquidacion()}">
+
+                        <h2 class="h2-login">EDITAR LIQUIDACIÓN</h2>
+                        <div class="mt-4 mb-3">
+                            <label for="trabajadorId" class="form-label">Trabajador</label>
+                            <select class="form-control readonly" id="trabajadorId" name="trabajadorId" >
+                            </select>
+                        </div>
+
+                        <!-- Sueldo Imponible -->
+                        <div class="form-group mb-3">
+                            <label for="sueldoImponible">Sueldo imponible</label>
+                            <input type="number" class="form-control" id="sueldoImponible" name="sueldoImponible"
+                                   placeholder="Ingrese sueldo imponible" required style="width: 350px; color: black;">
+                        </div>
+
+                        <!-- Institución salud-->
+                        <div class="mt-4 mb-3">
+                            <label for="saludId" class="form-label">Institución de Salud</label>
+                            <select class="form-control readonly" id="saludId" name="saludId" ></select>
+                        </div>
+                    <!-- monto salud -->
+                        <div class="mt-4 mb-3">
+                            <label for="montoSalud" class="form-label">Monto Salud</label>
+                            <input id="montoSalud" class="form-control readonly" type="number" name="montoInstSalud"  required style="width: 350px; color: black;">
+                        </div>
+
+                        <!-- Nombre de la AFP -->
+                        <div class="mt-4 mb-3">
+                            <label for="previsionId" class="form-label">AFP</label>
+                            <select id="previsionId" class="form-control readonly" name="previsionId" ></select>
+                        </div>
+
+                        <!-- Monto AFP -->
+                        <div class="mt-4 mb-3">
+                            <label for="montoAfp" class="form-label">Monto afp</label>
+                            <input id="montoAfp" class="form-control readonly" type="number"  name="montoInstPrevisional" required style="width: 350px; color: black;">
+                        </div>
+
+                        <!-- Total descuentos -->
+                        <div class="mt-4 mb-3">
+                            <label for="totalDscts" class="form-label">Total Descuentos</label>
+                            <input id="totalDscts" class="form-control readonly" type="text"  name="totalDescuento" required style="width: 350px; color: black;">
+                        </div>
+                        <!-- Total haberes -->
+                        <div class="mt-4 mb-3">
+                            <label for="totalHaberes" class="form-label">Total Haberes</label>
+                            <input id="totalHaberes" class="form-control readonly" type="number"  name="totalHaberes" required style="width: 350px; color: black;">
+                        </div>
+                        <!-- Anticipo -->
+                        <div class="form-group mb-3">
+                            <label for="anticipo">Anticipo</label>
+                            <input type="number" class="form-control" id="anticipo" name="anticipo"
+                                   placeholder="Ingrese anticipo" required style="width: 350px; color: black;">
+                        </div>
+                        <!-- Sueldo liquido -->
+                        <div class="mt-4 mb-3">
+                            <label for="sueldoLiquido" class="form-label">Sueldo Liquido</label>
+                            <input id="sueldoLiquido" class="form-control readonly" type="number"  name="sueldoLiquido" required style="width: 350px; color: black;">
+                        </div>
+                        <button type="submit" class="btn btn-secondary mt-2">Editar Liquidación</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer th:include="~{../static/html/footer.html}"></footer>
+<!-- Script -->
+<script th:include="~{../static/html/script.html}"></script>
+
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+
+<script th:src="@{/js/main.js}"></script>
+
+</body>
+
+</html>

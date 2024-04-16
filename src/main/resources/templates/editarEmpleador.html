@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar empleador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<!-- Barra de navegación -->
+<header th:include="~{../static/html/headerDos.html}"></header>
+<!-- Formulario-->
+<main class="formEmpleador">
+    <section class="section-usuario">
+        <div class="container mt-5 mb-4 usuario">
+            <div class="row">
+                <div class="col-s-12">
+                    <form th:action="@{/empleador/actualizar/{idEmpleador}(idEmpleador=${empleador.getIdEmpleador()})}" id="contactForm" th:method="post">
+                        <h2 class="h2-login">EDITAR EMPLEADOR</h2>
+                        <div class="form-group mb-3">
+                            <label for="run" class="form-label">RUN</label>
+                            <input type="number" class="form-control" id="run" name="run"
+                                    th:value="${empleador.getRun()}" aria-label="Disabled input example" disabled readonly style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                   placeholder="Ingrese su nombre" th:value="${empleador.getNombre()}" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="apellido1">Primer apellido</label>
+                            <input type="text" class="form-control" id="apellido1" name="apellido1"
+                                   placeholder="Ingrese primer apellido" th:value="${empleador.getApellido1()}" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="apellido2">Segundo apellido (opcional)</label>
+                            <input type="text" class="form-control" id="apellido2" name="apellido2"
+                                   placeholder="Ingrese segundo apellido" th:value="${empleador.getApellido2()}" style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="direccion">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion"
+                                   placeholder="Ingrese dirección" th:value="${empleador.getDireccion()}" style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="Ingrese email" th:value="${empleador.getEmail()}" required style="width: 350px; color: black;">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="telefono">Teléfono</label>
+                            <input type="number" class="form-control" id="telefono" name="telefono"
+                                   placeholder="Ejemplo: 569xxxxxxxx" th:value="${empleador.getTelefono()}" required style="width: 350px; color: black;">
+                        </div>
+
+
+                        <div class="mt-4 mb-3">
+                            <label for="usuarioId" class="form-label">Seleccionar Usuario</label>
+                            <select class="form-control" id="usuarioId" name="usuarioId">
+                                <!-- Iterar sobre la lista de usuarios disponibles -->
+                                <option th:each="usuario : ${usuarios}"
+                                        th:value="${usuario.idUsuario}"
+                                        th:text="${usuario.nombre + ' ' + usuario.apellido1}"
+                                        th:selected="${usuario.idUsuario == empleador.usuario.idUsuario}" ><!-- Establecer el atributo selected para el usuario actualmente asociado -->
+                                </option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-dark mt-3">Editar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer th:include="~{../static/html/footer.html}"></footer>
+<!-- Script -->
+<script th:include="~{../static/html/script.html}"></script>
+
+</body>
+
+</html>

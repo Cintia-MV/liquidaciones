@@ -1,5 +1,6 @@
 package cl.awakelab.liquidaciones.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,42 +12,52 @@ import java.util.List;
 public class Trabajador {
 
     @Id
-    @Column(nullable = false)
+    @Column(name = "id_trabajador",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_trabajador;
+    private int idTrabajador;
 
     @Column(nullable = false, unique = true)
     private int run;
 
-    @Column(nullable = false)
+    @Column(length = 100, nullable = false)
     private String nombre;
 
-    @Column(nullable = false)
-    private String apellido_1;
+    @Column(name = "apellido_1",length = 100, nullable = false)
+    private String apellido1;
 
-    @Column
-    private String apellido_2;
+    @Column(name = "apellido_2",length = 100)
+    private String apellido2;
 
-    @Column
+    @Column(length = 100)
     private String email;
 
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_prevision", nullable = false)
     private InstitucionPrevisional instPrevision;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+
+    @ManyToOne(optional = false,fetch = FetchType.EAGER)
     @JoinColumn(name = "id_inst_salud", nullable = false)
-    private InstitucionPrevisional instSalud;
+    private InstitucionSalud instSalud;
 
     @Column(nullable = false)
     private long telefono;
 
-    @OneToMany
-    List<Liquidacion> listaTrabajadores;
+    @JsonIgnore
+    @OneToMany(mappedBy = "trabajador")
+    List<Liquidacion> listaLiquidacion;
 
-    @ManyToMany(mappedBy = "trabajadores")
+    //Así estaba y no poblaba la tabla intermedia
+    /*@ManyToMany(mappedBy = "trabajadores")
+    private List<Empleador> listaEmpleadores;*/
+
+    //Relacion muchos a muchos de la tabla intermedia
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "empl_trab", //especifica la tabla intermedia que se utilizará para almacenar la relación.
+            joinColumns = @JoinColumn(name = "id_trabajador", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "id_empleador", nullable = false))
     private List<Empleador> listaEmpleadores;
-
-
 }

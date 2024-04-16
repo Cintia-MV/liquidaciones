@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro usuario</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<!-- Barra de navegación -->
+<header th:include="~{../static/html/header.html}"></header>
+
+<main class="imgRegistro">
+  <section class="section-contacto">
+    <div class="container mt-5 mb-4 contacto">
+      <div class="row">
+        <div class="col-s-12">
+          <form th:action="@{/usuario/registrar}" id="registro" th:method="post" onsubmit="return confirmarRegistro()">
+            <h2 class="h2-login">REGISTRO USUARIO</h2>
+            <div class="form-group mb-3">
+              <label for="run">RUN</label>
+              <input type="number" class="form-control" id="run" name="run" placeholder="Ejemplo: 12345678"
+                     required style="width: 350px; color: black;">
+            </div>
+            <div class="form-group mb-3">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre"
+                     required style="width: 350px; color: black;">
+            </div>
+            <div class="form-group mb-3">
+              <label for="apellido1">Primer apellido</label>
+              <input type="text" class="form-control" id="apellido1" name="apellido1"
+                     placeholder="Ingrese primer apellido" required style="width: 350px; color: black;">
+            </div>
+            <div class="form-group mb-3">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese email" required
+                     style="width: 350px; color: black;">
+            </div>
+            <div class="form-group mb-3">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="clave" placeholder="Ingrese clave"
+                     required style="width: 350px; color: black;">
+            </div>
+            <div class="form-group mb-3">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="perfil.idPerfil" th:value="2"
+                       id="inlineRadio1">
+                <label class="form-check-label" for="inlineRadio1">Empleador</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="perfil.idPerfil" th:value="2"
+                       id="inlineRadio2">
+                <label class="form-check-label" for="inlineRadio2">Contador</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-secondary mt-2">Registrar</button>
+          </form>
+          <div id="mensajeRegistro" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer th:include="~{../static/html/footer.html}"></footer>
+<!-- Script -->
+<script th:include="~{../static/html/script.html}"></script>
+
+<script>
+  function confirmarRegistro() {
+    // Mostrar ventana de confirmación
+    if (confirm('¿Confirma que los datos del nuevo usuario han sido ingresados de forma correcta.?')) {
+      // Mostrar el mensaje de registro exitoso
+      var mensajeRegistro = document.getElementById('mensajeRegistro');
+      mensajeRegistro = alert('Usuario registrado con éxito');
+      mensajeRegistro.style.display = 'block';
+      return true; // Permitir el envío del formulario
+    } else {
+      return false; // Cancelar el envío del formulario
+    }
+  }
+
+</script>
+
+</body>
+
+</html>
